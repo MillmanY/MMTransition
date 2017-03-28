@@ -7,18 +7,168 @@
 //
 
 import UIKit
+import MMTransition
+
+let headerArr = ["Dialog","Menu"]
+let titleArr = [["DialogType : PreferSize Animate: Alpha(0 to 1)" ,
+                 "DialogType : CustomSize Animate: Scale(0 to 1)" ,
+                 "Animate - Left",
+                 "Animate - Right",
+                 "Animate - Top",
+                 "Animate - Bottom"],
+                 ["Menu height 200 - Bottom",
+                  "Menu screen height rate 0.5 - Bottom",
+                  "Menu width 200 - Left",
+                  "Menu screen width 0.5 - Left",
+                  "Menu full screen - Left",
+                  "Menu width 200 - Right",
+                  "Menu screen width 0.5 - Right",
+                  "Menu full screen - Right"]]
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView:UITableView!
+    let menuAnimator = MMAnimator<MenuConfig>()
+    let dialogAnimator = MMAnimator<DialogConfig>()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            switch indexPath.section {
+            case 0:
+                self.dialog(row: indexPath.row)
+            case 1:
+                self.menu(row: indexPath.row)
+            default:
+                break
+            }
+        }
+    }
+}
+// Menu
+extension ViewController {
+    fileprivate func menu(row:Int) {
+        
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let second = story.instantiateViewController(withIdentifier: "Second")
+        
+        menuAnimator.activity { (config) in
+            switch row {
+            case 0:
+                config.dialogType = .bottomHeight(h: 200)
+            case 1:
+                config.dialogType = .bottomHeightFromViewRate(rate: 0.5)
+            case 2:
+                config.dialogType = .leftWidth(w: 300)
+            case 3:
+                config.dialogType = .leftWidthFromViewRate(rate: 0.5)
+            case 4:
+                config.dialogType = .leftFullScreen
+            case 5:
+                config.dialogType = .rightWidth(w: 300)
+            case 6:
+                config.dialogType = .rightWidthFromViewRate(rate: 0.5)
+            case 7:
+                config.presentingScale = 0.9
+                config.dialogType = .rightFullScreen
+            default:
+                break
+            }
+        }
+        second.modalPresentationStyle = .custom
+        second.transitioningDelegate = menuAnimator
+        self.present(second, animated: true, completion: nil)
+    }
+}
+
+// Dialog
+extension ViewController  {
+    
+    fileprivate func dialog(row:Int) {
+        switch row {
+        case 0:
+            self.dialogPreferSize()
+        case 1:
+            self.dialogSize()
+        case 2:
+            self.dialog(direction: .left)
+        case 3:
+            self.dialog(direction: .right)
+        case 4:
+            self.dialog(direction: .top)
+        case 5:
+            self.dialog(direction: .bottom)
+        default:
+            break
+        }
+    }
+    
+    fileprivate func dialogPreferSize() {
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let second = story.instantiateViewController(withIdentifier: "DialogCoder")
+        self.present(second, animated: true, completion: nil)
+    }
+    
+    fileprivate func dialogSize() {
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let second = story.instantiateViewController(withIdentifier: "Second")
+        
+        dialogAnimator.activity { (config) in
+            config.dialogType = .preferSize
+            config.animateType = .alpha(from: 0.0, to: 1.0)
+        }
+        
+        second.modalPresentationStyle = .custom
+        second.transitioningDelegate = dialogAnimator
+        self.present(second, animated: true, completion: nil)
+    }
+    
+    fileprivate func dialog(direction:DirectionType) {
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let second = story.instantiateViewController(withIdentifier: "Second")
+        
+        dialogAnimator.activity { (config) in
+            config.presentingScale = 0.95
+            config.dialogType = .preferSize
+            config.animateType = .direction(type: direction)
+        }
+        
+        second.modalPresentationStyle = .custom
+        second.transitioningDelegate = dialogAnimator
+        self.present(second, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
+        if let label = cell.viewWithTag(100) as? UILabel {
+            label.text = titleArr[indexPath.section][indexPath.row]
+        }
+        cell.selectionStyle = .none
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleArr[section].count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return headerArr.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headerArr[section]
+    }
+}
+
+
+
+
 

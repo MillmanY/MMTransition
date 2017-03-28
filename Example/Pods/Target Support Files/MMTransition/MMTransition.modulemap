@@ -1,0 +1,6 @@
+framework module MMTransition {
+  umbrella header "MMTransition-umbrella.h"
+
+  export *
+  module * { export * }
+}

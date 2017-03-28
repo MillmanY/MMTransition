@@ -2,10 +2,4 @@ use_frameworks!
 
 target 'MMTransition_Example' do
   pod 'MMTransition', :path => '../'
-
-  target 'MMTransition_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

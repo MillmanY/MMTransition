@@ -1,0 +1,16 @@
+PODS:
+  - MMTransition (0.1.0)
+
+DEPENDENCIES:
+  - MMTransition (from `../`)
+
+EXTERNAL SOURCES:
+  MMTransition:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MMTransition: f1f5d193c0224a53098832f5af4e41a686bb087f
+
+PODFILE CHECKSUM: 8facefa1bb5bdce85ec6d4e479259bc4bef62aa6
+
+COCOAPODS: 1.1.1
