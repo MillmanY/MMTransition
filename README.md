@@ -8,6 +8,9 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Demo
+![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/dialog.gif)
+![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/menu.gif)
 
 ## Requirements
     iOS 8.0+
