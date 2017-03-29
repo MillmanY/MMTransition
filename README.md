@@ -7,7 +7,7 @@
 
 ## Description
 
-  1. Custom PresentmodaController with UIPresentation and UIViewControllerTransitioningDelegate ,
+  1. Custom PresentmodaController with UIPresentationController and UIViewControllerTransitioningDelegate ,
   2. More convenience to custom your dialog or menu 
 
 ## Demo
