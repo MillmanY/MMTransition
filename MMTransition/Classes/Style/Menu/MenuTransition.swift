@@ -18,7 +18,7 @@ class MenuTransition: BaseTransition , UIViewControllerAnimatedTransitioning{
         let container = transitionContext.containerView
         let height = container.frame.height
         let width = container.frame.width
-        switch (config as! MenuConfig).dialogType {
+        switch (config as! MenuConfig).menuType {
         case .bottomHeight(let h):
             let y = height - h
             self.bottom(context: transitionContext, height: h)

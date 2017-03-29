@@ -10,8 +10,8 @@ import UIKit
 import MMTransition
 
 let headerArr = ["Dialog","Menu"]
-let titleArr = [["DialogType : PreferSize Animate: Alpha(0 to 1)" ,
-                 "DialogType : CustomSize Animate: Scale(0 to 1)" ,
+let titleArr = [["DialogType : PreferSize Animate: Scale(0 to 1)" ,
+                 "DialogType : CustomSize Animate: Alpha(0 to 1)" ,
                  "Animate - Left",
                  "Animate - Right",
                  "Animate - Top",
@@ -59,24 +59,33 @@ extension ViewController {
         let second = story.instantiateViewController(withIdentifier: "Second")
         
         menuAnimator.activity { (config) in
+            config.isDraggable = true
             switch row {
             case 0:
-                config.dialogType = .bottomHeight(h: 200)
+                config.presentingScale = 1.0
+
+                config.menuType = .bottomHeight(h: 200)
             case 1:
-                config.dialogType = .bottomHeightFromViewRate(rate: 0.5)
+                config.presentingScale = 1.0
+                config.menuType = .bottomHeightFromViewRate(rate: 0.5)
             case 2:
-                config.dialogType = .leftWidth(w: 300)
+                config.presentingScale = 1.0
+                config.menuType = .leftWidth(w: 300)
             case 3:
-                config.dialogType = .leftWidthFromViewRate(rate: 0.5)
+                config.presentingScale = 1.0
+                config.menuType = .leftWidthFromViewRate(rate: 0.5)
             case 4:
-                config.dialogType = .leftFullScreen
+                config.presentingScale = 1.0
+                config.menuType = .leftFullScreen
             case 5:
-                config.dialogType = .rightWidth(w: 300)
+                config.presentingScale = 1.0
+                config.menuType = .rightWidth(w: 300)
             case 6:
-                config.dialogType = .rightWidthFromViewRate(rate: 0.5)
+                config.presentingScale = 1.0
+                config.menuType = .rightWidthFromViewRate(rate: 0.5)
             case 7:
                 config.presentingScale = 0.9
-                config.dialogType = .rightFullScreen
+                config.menuType = .rightFullScreen
             default:
                 break
             }

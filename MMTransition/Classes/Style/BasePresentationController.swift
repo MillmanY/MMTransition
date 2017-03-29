@@ -36,20 +36,18 @@ public class BasePresentationController: UIPresentationController {
             self.presentingViewController.view.transform = CGAffineTransform(scaleX: self.config.presentingScale, y: self.config.presentingScale)
             self.maskView.alpha = 1.0
         }, completion: nil)
-
-    }
-    
-    public override func dismissalTransitionWillBegin() {
-        super.dismissalTransitionWillBegin()
-        self.presentingViewController.transitionCoordinator?.animate(alongsideTransition: { (context) in
-            self.presentingViewController.view.transform = .identity
-        }, completion: nil)
     }
     
     public override func dismissalTransitionDidEnd(_ completed: Bool) {
         super.dismissalTransitionDidEnd(completed)
-        maskView.removeFromSuperview()
+        if completed {
+            maskView.removeFromSuperview()
+            UIView.animate(withDuration: config.duration, animations: {
+                self.presentingViewController.view.transform = .identity
+            })
+        }
     }
+    
     public override func containerViewWillLayoutSubviews() {
         super.containerViewWillLayoutSubviews()
         if let c = containerView {
@@ -66,16 +64,14 @@ public class BasePresentationController: UIPresentationController {
     }
     
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
         coordinator.animate(alongsideTransition: { (context) in
-       
             // Prevent Scale error
             if let c = self.containerView {
                 self.presentingViewController.view.transform = .identity
                 self.presentingViewController.view.frame = c.bounds
                 self.presentingViewController.view.transform = CGAffineTransform(scaleX: self.config.presentingScale, y: self.config.presentingScale)
             }
-            
-            
             self.presentedViewController.view.frame = self.frameOfPresentedViewInContainerView
         }) { (context) in
         }

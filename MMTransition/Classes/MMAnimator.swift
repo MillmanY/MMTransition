@@ -14,6 +14,24 @@ public class MMAnimator<T:NSObject where T:Config>: NSObject , UIViewControllerT
         animatorConfig = T()
     }
     
+    public func activity(setting:(_ config:T)->Void) {
+        if let c = animatorConfig {
+            setting(c)
+        }
+    }
+
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if let c = animatorConfig , animator != nil{
+            switch c {
+            case let c as MenuConfig:
+                return c.drivenInteractive
+            default:
+               break
+            }
+        }
+        return nil
+    }
+    
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self.transition(config: animatorConfig, isPresent: false)
     }
@@ -24,12 +42,6 @@ public class MMAnimator<T:NSObject where T:Config>: NSObject , UIViewControllerT
     
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return self.presentationController(config: animatorConfig, forPresented: presented, presenting: presenting)
-    }
-    
-    public func activity(setting:(_ config:T)->Void) {
-        if let c = animatorConfig {
-            setting(c)
-        }
     }
     
     fileprivate func transition(config:T? ,isPresent:Bool) -> UIViewControllerAnimatedTransitioning? {

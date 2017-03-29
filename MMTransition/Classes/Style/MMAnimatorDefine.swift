@@ -13,7 +13,7 @@ public protocol Config {
      var springVelocity : CGFloat { get set }
      var animationOption:UIViewAnimationOptions { get set }
      var duration : TimeInterval { get set }
-    var presentingScale:CGFloat  { get set }
+     var presentingScale:CGFloat  { get set }
 }
 
 public enum DialogType {

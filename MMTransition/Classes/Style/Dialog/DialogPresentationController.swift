@@ -9,6 +9,13 @@
 import UIKit
 public class DialogPresentationController: BasePresentationController {
     
+    public override func dismissalTransitionWillBegin() {
+        super.dismissalTransitionWillBegin()
+        self.presentingViewController.transitionCoordinator?.animate(alongsideTransition: { (context) in
+            self.presentingViewController.view.transform = .identity
+        }, completion: nil)
+    }
+    
     public override var frameOfPresentedViewInContainerView: CGRect {
         
         get {

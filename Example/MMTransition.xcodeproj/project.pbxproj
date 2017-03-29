@@ -116,8 +116,8 @@
 			children = (
 				5E51C1E71E89F63800002516 /* Dialog */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				5E51C1C81E88C40800002516 /* SecondViewController.swift */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -234,6 +234,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 3N2EM49X57;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -544,6 +545,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875C27478879E1508528085E /* Pods-MMTransition_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 3N2EM49X57;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -564,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F7CF655BC4347D2C7B22E7F /* Pods-MMTransition_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 3N2EM49X57;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -18,6 +18,7 @@ class DialogViewController: UIViewController {
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = animator
         animator.activity { (config) in
+        
             config.animateType = .scale(from: 0, to: 1)
             config.dialogType = .size(s: CGSize(width: 300, height: 200))
         }

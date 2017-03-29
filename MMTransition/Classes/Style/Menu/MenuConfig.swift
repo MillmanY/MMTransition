@@ -9,7 +9,7 @@
 import UIKit
 
 
-public enum MenuAnimateType {
+public enum MenuType {
     case leftWidth(w:CGFloat)
     case leftWidthFromViewRate(rate:CGFloat)
     
@@ -29,8 +29,9 @@ public class MenuConfig: NSObject , Config {
     public var damping: CGFloat = 0.0
     public var animationOption:UIViewAnimationOptions = .curveLinear
     public var springVelocity: CGFloat = 0.0
-    public var dialogType:MenuAnimateType = .bottomHeight(h: 100)
+    public var menuType:MenuType = .bottomHeight(h: 100)
     public var duration:TimeInterval = 0.3
-
-    
+    public var isDraggable = false
+    public var drivenInteractive:UIPercentDrivenInteractiveTransition?
+    public var draggableCompletedPrecent:CGFloat = 0.5
 }
