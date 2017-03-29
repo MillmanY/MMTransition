@@ -5,9 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/MMTransition.svg?style=flat)](http://cocoapods.org/pods/MMTransition)
 [![Platform](https://img.shields.io/cocoapods/p/MMTransition.svg?style=flat)](http://cocoapods.org/pods/MMTransition)
 
-## Example
+## Description
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+  1. Custom PresentmodaController with UIPresentation and UIViewControllerTransitioningDelegate ,
+  2. More convenience to custom your dialog or menu 
+
 ## Demo
 ![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/dialog.gif)
 ![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/menu.gif)
