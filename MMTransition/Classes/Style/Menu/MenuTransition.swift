@@ -20,7 +20,6 @@ class MenuTransition: BaseTransition , UIViewControllerAnimatedTransitioning{
         let width = container.frame.width
         switch (config as! MenuConfig).menuType {
         case .bottomHeight(let h):
-            let y = height - h
             self.bottom(context: transitionContext, height: h)
         case .bottomHeightFromViewRate(let rate):
             let rateH = height * rate
@@ -57,18 +56,14 @@ class MenuTransition: BaseTransition , UIViewControllerAnimatedTransitioning{
                 toVC.view.transform = .identity
             
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         } else {
             let fromView = context.viewController(forKey: .from)!
             self.animate(animations: {
                 fromView.view.transform = CGAffineTransform(translationX: 0, y: height)
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         }
     }
@@ -88,18 +83,14 @@ class MenuTransition: BaseTransition , UIViewControllerAnimatedTransitioning{
                 toVC.view.transform = .identity
                 
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         } else {
             let fromView = context.viewController(forKey: .from)!
             self.animate(animations: {
                 fromView.view.transform = CGAffineTransform(translationX: x, y: 0)
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         }
     }

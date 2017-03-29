@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = 'Custom transition for present controller like AlertController'
 
-  s.homepage         = 'https://github.com/millmanyang@gmail.com/MMTransition'
+  s.homepage         = 'https://github.com/MillmanY/MMTransition'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'millmanyang@gmail.com' => 'millmanyang@gmail.com' }
-  s.source           = { :git => 'https://github.com/millmanyang@gmail.com/MMTransition.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/MillmanY/MMTransition.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

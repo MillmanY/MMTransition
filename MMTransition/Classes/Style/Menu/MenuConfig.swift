@@ -23,14 +23,7 @@ public enum MenuType {
     case rightFullScreen
 }
 
-
-public class MenuConfig: NSObject , Config {
-    public var presentingScale:CGFloat = 1.0
-    public var damping: CGFloat = 0.0
-    public var animationOption:UIViewAnimationOptions = .curveLinear
-    public var springVelocity: CGFloat = 0.0
-    public var menuType:MenuType = .bottomHeight(h: 100)
-    public var duration:TimeInterval = 0.3
+public class MenuConfig: BaseConfig {
     public var isDraggable = false
     public var drivenInteractive:UIPercentDrivenInteractiveTransition?
     public var draggableCompletedPrecent:CGFloat = 0.5

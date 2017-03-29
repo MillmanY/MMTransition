@@ -7,7 +7,7 @@
 //
 
 import UIKit
-public class MMAnimator<T:NSObject where T:Config>: NSObject , UIViewControllerTransitioningDelegate {
+public class MMAnimator<T:BaseConfig>: NSObject , UIViewControllerTransitioningDelegate {
     var animatorConfig:T?
     
     public override init() {
@@ -21,7 +21,7 @@ public class MMAnimator<T:NSObject where T:Config>: NSObject , UIViewControllerT
     }
 
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if let c = animatorConfig , animator != nil{
+        if let c = animatorConfig{
             switch c {
             case let c as MenuConfig:
                 return c.drivenInteractive

@@ -63,7 +63,6 @@ public class MenuPresentationController: BasePresentationController {
                 self.presentedViewController.dismiss(animated: true, completion: nil)
             case .changed:
                 let current = gesture.translation(in: view)
-                let shift = current.y - firstOffset.y
                 let percent = self.calculatePercent(offset: current, config: c)
                 self.presentingViewScale(percent: percent, animate: false)
                 c.drivenInteractive?.update(percent)
@@ -115,7 +114,6 @@ public class MenuPresentationController: BasePresentationController {
                 percent = (offset.x - firstOffset.x) / (view.frame.width + 1)
             case .leftWidth(_) , .leftWidthFromViewRate(_) , .leftFullScreen:
                 percent = (firstOffset.x - offset.x) / (view.frame.width + 1)
-            default:break
             }
         }
         if percent <= 0 {

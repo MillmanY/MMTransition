@@ -31,10 +31,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             
             let toVC = context.viewController(forKey: .to)!            
             let finalFrame = context.finalFrame(for: toVC)
-            toVC.view.frame = finalFrame
-            let width = toVC.view.frame.width
-            let height = toVC.view.frame.height
-  
+            toVC.view.frame = finalFrame  
             toVC.view.transform = self.direction(type: type, frame: container.frame)
             
             container.addSubview(toVC.view)
@@ -42,9 +39,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             self.animate(animations: {
                 toVC.view.transform = .identity
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
             
         } else {
@@ -53,9 +48,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             self.animate(animations: {
                 fromView.view.transform = self.direction(type: type, frame: container.frame)
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         }
     }
@@ -88,9 +81,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             self.animate(animations: {
                 toVC.view.transform = .identity
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
             
         } else {
@@ -99,9 +90,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             self.animate(animations: {
                 fromView.view.transform = CGAffineTransform.init(scaleX: 0.00001, y: 0.0001)
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         }
 
@@ -118,9 +107,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             self.animate(animations: {
                 toVC.view.alpha = to
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
             
         } else {
@@ -129,9 +116,7 @@ public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransiti
             self.animate(animations: {
                 fromView.view.alpha = from
             }, completion: { (finish) in
-                if finish {
-                    context.completeTransition(!context.transitionWasCancelled)
-                }
+                context.completeTransition(!context.transitionWasCancelled)
             })
         }
     }

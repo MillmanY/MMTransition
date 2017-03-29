@@ -31,7 +31,7 @@ public class BasePresentationController: UIPresentationController {
         if let c = containerView , maskView.superview == nil {
             c.addSubview(maskView)
         }
-
+        
         self.presentingViewController.transitionCoordinator?.animate(alongsideTransition: { (context) in
             self.presentingViewController.view.transform = CGAffineTransform(scaleX: self.config.presentingScale, y: self.config.presentingScale)
             self.maskView.alpha = 1.0
@@ -64,7 +64,7 @@ public class BasePresentationController: UIPresentationController {
     }
     
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
+
         coordinator.animate(alongsideTransition: { (context) in
             // Prevent Scale error
             if let c = self.containerView {
