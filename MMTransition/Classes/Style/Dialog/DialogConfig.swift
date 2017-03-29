@@ -8,6 +8,11 @@
 
 import UIKit
 
+public enum DialogType {
+    case preferSize //Xib use
+    case size(s:CGSize) //Custom Size
+}
+
 public enum DirectionType {
     case left
     case right

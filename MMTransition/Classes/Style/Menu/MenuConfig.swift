@@ -24,6 +24,7 @@ public enum MenuType {
 }
 
 public class MenuConfig: BaseConfig {
+    public var menuType:MenuType = .bottomHeight(h: 100)
     public var isDraggable = false
     public var drivenInteractive:UIPercentDrivenInteractiveTransition?
     public var draggableCompletedPrecent:CGFloat = 0.5
