@@ -119,10 +119,8 @@ public class MenuPresentationController: BasePresentationController {
             }
         }
         if percent <= 0 {
-            print("A")
             return 0.001
         } else if percent >= 1 {
-            print("B")
             return 0.99
         } else {
             return percent
