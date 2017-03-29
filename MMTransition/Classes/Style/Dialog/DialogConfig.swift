@@ -26,7 +26,13 @@ public enum DialogAnimateType {
     case direction(type:DirectionType)
 }
 
-public class DialogConfig: BaseConfig {
+public class DialogConfig: NSObject , Config {
+    public var presentingScale:CGFloat = 1.0
+    public var damping: CGFloat = 0.0
+    public var animationOption:UIViewAnimationOptions = .curveLinear
+    public var springVelocity: CGFloat = 0.0
+    public var duration:TimeInterval = 0.3
+
     public var dialogType:DialogType = DialogType.size(s: CGSize(width: 100, height: 100))
     public var animateType:DialogAnimateType = .alpha(from: 0, to: 1)
 }

@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     let menuAnimator = MMAnimator<MenuConfig>()
     let dialogAnimator = MMAnimator<DialogConfig>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 44

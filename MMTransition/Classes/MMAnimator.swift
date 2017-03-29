@@ -7,7 +7,7 @@
 //
 
 import UIKit
-public class MMAnimator<T:BaseConfig>: NSObject , UIViewControllerTransitioningDelegate {
+public class MMAnimator<T:NSObject>: NSObject , UIViewControllerTransitioningDelegate where T:Config {
     var animatorConfig:T?
     
     public override init() {

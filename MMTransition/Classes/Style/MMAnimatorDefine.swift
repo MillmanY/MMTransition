@@ -16,13 +16,3 @@ public protocol Config {
      var presentingScale:CGFloat  { get set }
 }
 
-public class BaseConfig:NSObject , Config {
-    public var presentingScale:CGFloat = 1.0
-    public var damping: CGFloat = 0.0
-    public var animationOption:UIViewAnimationOptions = .curveLinear
-    public var springVelocity: CGFloat = 0.0
-    public var duration:TimeInterval = 0.3
-    required override public init() {
-        super.init()
-    }
-}
