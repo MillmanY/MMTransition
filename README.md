@@ -119,12 +119,12 @@ MMTransition is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "MMTransition"
+pod 'MMTransitio'
 ```
 
 ## Author
 
-millmanyang@gmail.com, millmanyang@gmail.com
+millmanyang@gmail.com
 
 ## License
 
