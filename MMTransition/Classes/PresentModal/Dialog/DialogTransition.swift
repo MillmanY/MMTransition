@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DialogTransition: BaseTransition , UIViewControllerAnimatedTransitioning {
+public class DialogTransition: BasePresentTransition , UIViewControllerAnimatedTransitioning {
             
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return config.duration

@@ -9,10 +9,10 @@
 import UIKit
 
 public class BasePresentationController: UIPresentationController {
-    internal var config:Config!
+    internal var config:PresentConfig!
     public convenience init(presentedViewController: UIViewController, presenting
         presentingViewController: UIViewController? ,
-                            config:Config) {
+                            config:PresentConfig) {
         
         self.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         self.config = config
@@ -21,17 +21,20 @@ public class BasePresentationController: UIPresentationController {
     public var maskView:UIView = {
         let view = UIView()
         view.alpha = 0.0
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
         return view
     }()
     
     public override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
-
         if let c = containerView , maskView.superview == nil {
+            maskView.isHidden = !config.isShowMask
             c.addSubview(maskView)
         }
+//        let opactiy = self.config.presentView.opacity
+//        let redius = self.config.presentView.radius
         
+//        self.presentedView?.mShape.shadow(opacity: Float(opactiy), radius: Float(redius))
         self.presentingViewController.transitionCoordinator?.animate(alongsideTransition: { (context) in
             self.presentingViewController.view.transform = CGAffineTransform(scaleX: self.config.presentingScale, y: self.config.presentingScale)
             self.maskView.alpha = 1.0
@@ -41,6 +44,7 @@ public class BasePresentationController: UIPresentationController {
     public override func dismissalTransitionDidEnd(_ completed: Bool) {
         super.dismissalTransitionDidEnd(completed)
         if completed {
+            maskView.isHidden = !config.isShowMask
             maskView.removeFromSuperview()
             UIView.animate(withDuration: config.duration, animations: {
                 self.presentingViewController.view.transform = .identity

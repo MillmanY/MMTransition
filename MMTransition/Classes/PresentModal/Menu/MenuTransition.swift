@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuTransition: BaseTransition , UIViewControllerAnimatedTransitioning{
+class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransitioning{
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return config.duration
     }
@@ -49,7 +49,6 @@ class MenuTransition: BaseTransition , UIViewControllerAnimatedTransitioning{
             let finalFrame = context.finalFrame(for: toVC)
             toVC.view.frame = finalFrame
             container.addSubview(toVC.view)
-
             toVC.view.transform = CGAffineTransform(translationX: 0, y: height)
 
             self.animate(animations: {

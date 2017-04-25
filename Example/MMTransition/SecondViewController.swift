@@ -13,6 +13,7 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Demo2"
     }
     
     required init?(coder aDecoder: NSCoder) {

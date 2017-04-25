@@ -23,7 +23,8 @@ public enum MenuType {
     case rightFullScreen
 }
 
-public class MenuConfig: NSObject, Config {
+public class MenuConfig: NSObject, PresentConfig {
+    public var isShowMask: Bool = true
     public var presentingScale:CGFloat = 1.0
     public var damping: CGFloat = 0.0
     public var animationOption:UIViewAnimationOptions = .curveLinear
@@ -34,4 +35,7 @@ public class MenuConfig: NSObject, Config {
     public var isDraggable = false
     public var drivenInteractive:UIPercentDrivenInteractiveTransition?
     public var draggableCompletedPrecent:CGFloat = 0.5
+    
+    
+    public var presentView:(opacity: CGFloat ,radius: CGFloat) = (0.0 , 0.0)
 }

@@ -10,15 +10,11 @@ import UIKit
 import MMTransition
 class DialogViewController: UIViewController {
 
-    let animator = MMAnimator<DialogConfig>()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
-        self.modalPresentationStyle = .custom
-        self.transitioningDelegate = animator
-        animator.activity { (config) in
         
+        self.mmT.present.dialog { (config) in
             config.animateType = .scale(from: 0, to: 1)
             config.dialogType = .size(s: CGSize(width: 300, height: 200))
         }

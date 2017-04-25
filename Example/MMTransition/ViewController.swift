@@ -9,7 +9,7 @@
 import UIKit
 import MMTransition
 
-let headerArr = ["Dialog","Menu"]
+let headerArr = ["Dialog","Menu","Navigation Push"]
 let titleArr = [["DialogType : PreferSize Animate: Scale(0 to 1)" ,
                  "DialogType : CustomSize Animate: Alpha(0 to 1)" ,
                  "Animate - Left",
@@ -23,13 +23,12 @@ let titleArr = [["DialogType : PreferSize Animate: Scale(0 to 1)" ,
                   "Menu full screen - Left",
                   "Menu width 200 - Right",
                   "Menu screen width 0.5 - Right",
-                  "Menu full screen - Right"]]
+                  "Menu full screen - Right"],
+                  ["Alpha"]]
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView:UITableView!
-    let menuAnimator = MMAnimator<MenuConfig>()
-    let dialogAnimator = MMAnimator<DialogConfig>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,25 +45,38 @@ extension ViewController: UITableViewDelegate {
                 self.dialog(row: indexPath.row)
             case 1:
                 self.menu(row: indexPath.row)
+            case 2:
+                self.push(row: indexPath.row)
             default:
                 break
             }
         }
     }
 }
-// Menu
+// Push
 extension ViewController {
-    fileprivate func menu(row:Int) {
-        
+    fileprivate func push(row:Int) {
         let story = UIStoryboard.init(name: "Main", bundle: nil)
         let second = story.instantiateViewController(withIdentifier: "Second")
         
-        menuAnimator.activity { (config) in
+        self.navigationController?.mmT.push.alpha(setting: { (config) in
+            
+        })
+        self.navigationController?.pushViewController(second, animated: true)
+    }
+}
+// Menu
+extension ViewController {
+    fileprivate func menu(row:Int) {
+
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let second = story.instantiateViewController(withIdentifier: "Second")
+        
+        second.mmT.present.menu { (config) in
             config.isDraggable = true
             switch row {
             case 0:
                 config.presentingScale = 1.0
-
                 config.menuType = .bottomHeight(h: 200)
             case 1:
                 config.presentingScale = 1.0
@@ -91,8 +103,6 @@ extension ViewController {
                 break
             }
         }
-        second.modalPresentationStyle = .custom
-        second.transitioningDelegate = menuAnimator
         self.present(second, animated: true, completion: nil)
     }
 }
@@ -101,22 +111,28 @@ extension ViewController {
 extension ViewController  {
     
     fileprivate func dialog(row:Int) {
-        switch row {
-        case 0:
-            self.dialogPreferSize()
-        case 1:
-            self.dialogSize()
-        case 2:
-            self.dialog(direction: .left)
-        case 3:
-            self.dialog(direction: .right)
-        case 4:
-            self.dialog(direction: .top)
-        case 5:
-            self.dialog(direction: .bottom)
-        default:
-            break
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let second = story.instantiateViewController(withIdentifier: "Second")
+        
+        second.mmT.present.dialog { (config) in
+            switch row {
+            case 0:
+                self.dialogPreferSize()
+            case 1:
+                self.dialogSize()
+            case 2:
+                self.dialog(direction: .left)
+            case 3:
+                self.dialog(direction: .right)
+            case 4:
+                self.dialog(direction: .top)
+            case 5:
+                self.dialog(direction: .bottom)
+            default:
+                break
+            }
         }
+        self.present(second, animated: true, completion: nil)
     }
     
     fileprivate func dialogPreferSize() {
@@ -129,13 +145,10 @@ extension ViewController  {
         let story = UIStoryboard.init(name: "Main", bundle: nil)
         let second = story.instantiateViewController(withIdentifier: "Second")
         
-        dialogAnimator.activity { (config) in
+        second.mmT.present.dialog { (config) in
             config.dialogType = .preferSize
             config.animateType = .alpha(from: 0.0, to: 1.0)
         }
-        
-        second.modalPresentationStyle = .custom
-        second.transitioningDelegate = dialogAnimator
         self.present(second, animated: true, completion: nil)
     }
     
@@ -143,14 +156,12 @@ extension ViewController  {
         let story = UIStoryboard.init(name: "Main", bundle: nil)
         let second = story.instantiateViewController(withIdentifier: "Second")
         
-        dialogAnimator.activity { (config) in
+        second.mmT.present.dialog { (config) in
             config.presentingScale = 0.95
             config.dialogType = .preferSize
             config.animateType = .direction(type: direction)
         }
         
-        second.modalPresentationStyle = .custom
-        second.transitioningDelegate = dialogAnimator
         self.present(second, animated: true, completion: nil)
     }
 }
@@ -177,8 +188,3 @@ extension ViewController: UITableViewDataSource {
         return headerArr[section]
     }
 }
-
-
-
-
-
