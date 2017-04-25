@@ -22,39 +22,38 @@
 1.Add in your present controller
   
     class DialogViewController: UIViewController {
-        let animator = MMAnimator<DialogConfig>()
         required init?(coder aDecoder: NSCoder) {
              super.init(coder: aDecoder)
-
-             self.modalPresentationStyle = .custom
-             self.transitioningDelegate = animator
-             animator.activity { (config) in
+        
+             self.mmT.present.dialog { (config) in
                 config.animateType = .scale(from: 0, to: 1)
                 config.dialogType = .size(s: CGSize(width: 300, height: 200))
-            }
-       }
+             }
+        }
     }
 2.Init with code
 
     let story = UIStoryboard.init(name: "Main", bundle: nil)
     let second = story.instantiateViewController(withIdentifier: "Second")
         
-    menuAnimator.activity { (config) in
-        config.isDraggable = true
-        config.presentingScale = 1.0
+    second.mmT.present.menu { (config) in
+            config.isDraggable = true
+            config.presentingScale = 1.0
+            config.menuType = .bottomHeight(h: 200)
     }
-    second.modalPresentationStyle = .custom
-    second.transitioningDelegate = menuAnimator
+
     self.present(second, animated: true, completion: nil)
 
 ## Setting parameter in activity closure
-    menuAnimator.activity { (config) in
-       config.isDraggable = true
-       config.presentingScale = 1.0
-       ......
-       ....
-       ..
-    } 
+
+    vc.mmT.present.menu { (config) in
+             config.isDraggable = true
+             config.presentingScale = 1.0
+             ......
+             ....
+             ..
+    }
+
 ## Style
 1.Common parameter
     
