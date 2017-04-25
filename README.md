@@ -119,6 +119,9 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'MMTransition'
+pod 'MMTransition', '1.0.0'
+
+ex. if you can't see command (pod repo update) in terminal
 ```
 
 ## Author
