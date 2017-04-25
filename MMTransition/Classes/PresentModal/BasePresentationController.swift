@@ -31,10 +31,10 @@ public class BasePresentationController: UIPresentationController {
             maskView.isHidden = !config.isShowMask
             c.addSubview(maskView)
         }
-//        let opactiy = self.config.presentView.opacity
-//        let redius = self.config.presentView.radius
+        let opactiy = self.config.presentView.opacity
+        let redius = self.config.presentView.radius
         
-//        self.presentedView?.mShape.shadow(opacity: Float(opactiy), radius: Float(redius))
+        self.presentedView?.mShape.shadow(opacity: Float(opactiy), radius: Float(redius))
         self.presentingViewController.transitionCoordinator?.animate(alongsideTransition: { (context) in
             self.presentingViewController.view.transform = CGAffineTransform(scaleX: self.config.presentingScale, y: self.config.presentingScale)
             self.maskView.alpha = 1.0

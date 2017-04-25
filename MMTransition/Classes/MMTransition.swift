@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 public protocol Config {
     var isShowMask:Bool {get set}
     var damping : CGFloat { get set }

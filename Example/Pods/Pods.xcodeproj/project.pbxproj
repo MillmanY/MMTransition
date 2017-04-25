@@ -13,7 +13,6 @@
 		4F5DD07234E4F3CB937B76814E9F7819 /* Pods-MMTransition_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FFC07EBCFECD4D5B15A5CD5B422D52 /* Pods-MMTransition_Tests-dummy.m */; };
 		5DA4688A3418A47293886A2726984846 /* Pods-MMTransition_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4705ADB5BEE210533C011DC958E4C6D /* Pods-MMTransition_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5EC9C08C1EAE2C7C002D1A43 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC9C07A1EAE2C7C002D1A43 /* BaseTransition.swift */; };
-		5EC9C08D1EAE2C7C002D1A43 /* MMAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC9C07B1EAE2C7C002D1A43 /* MMAnimator.swift */; };
 		5EC9C08F1EAE2C7C002D1A43 /* AlphaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC9C07F1EAE2C7C002D1A43 /* AlphaConfig.swift */; };
 		5EC9C0901EAE2C7C002D1A43 /* AlphaTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC9C0801EAE2C7C002D1A43 /* AlphaTransition.swift */; };
 		5EC9C0911EAE2C7C002D1A43 /* BasePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC9C0821EAE2C7C002D1A43 /* BasePresentationController.swift */; };
@@ -26,6 +25,7 @@
 		5EC9C09B1EAE318A002D1A43 /* MMTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC9C09A1EAE318A002D1A43 /* MMTransition.swift */; };
 		5EEC25B41EAF08AE00DC3F93 /* MMPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC25B31EAF08AE00DC3F93 /* MMPresentAnimator.swift */; };
 		5EEC25B61EAF093600DC3F93 /* MMPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC25B51EAF093600DC3F93 /* MMPushAnimator.swift */; };
+		5EEC25B81EAF248B00DC3F93 /* UIView+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC25B71EAF248B00DC3F93 /* UIView+Shape.swift */; };
 		8B69427A366F514EB6C40B946E18F908 /* MMTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5C1655595ADCC7574B1B97AEDD3A2 /* MMTransition-dummy.m */; };
 		9E8078562DE02635AE515B00BBD2EAAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		B92E36D9069339A3C4BB03442D273B52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -57,7 +57,6 @@
 		5BB783EAC0D8730E55697C04EB048D36 /* Pods-MMTransition_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MMTransition_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		5EC9C0791EAE2C7C002D1A43 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5EC9C07A1EAE2C7C002D1A43 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
-		5EC9C07B1EAE2C7C002D1A43 /* MMAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMAnimator.swift; sourceTree = "<group>"; };
 		5EC9C07F1EAE2C7C002D1A43 /* AlphaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaConfig.swift; sourceTree = "<group>"; };
 		5EC9C0801EAE2C7C002D1A43 /* AlphaTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaTransition.swift; sourceTree = "<group>"; };
 		5EC9C0821EAE2C7C002D1A43 /* BasePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresentationController.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		5EC9C09A1EAE318A002D1A43 /* MMTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTransition.swift; sourceTree = "<group>"; };
 		5EEC25B31EAF08AE00DC3F93 /* MMPresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPresentAnimator.swift; sourceTree = "<group>"; };
 		5EEC25B51EAF093600DC3F93 /* MMPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPushAnimator.swift; sourceTree = "<group>"; };
+		5EEC25B71EAF248B00DC3F93 /* UIView+Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shape.swift"; sourceTree = "<group>"; };
 		5F48FE05D5233DA5FB46CC436E93005F /* Pods-MMTransition_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MMTransition_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		608F797B646333C1726D01D18430FF03 /* MMTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMTransition-prefix.pch"; sourceTree = "<group>"; };
 		7B09406FD76BD8189F5773CC80222F4F /* Pods-MMTransition_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MMTransition_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				5EC9C0791EAE2C7C002D1A43 /* .gitkeep */,
+				5EEC25B71EAF248B00DC3F93 /* UIView+Shape.swift */,
 				5EC9C09A1EAE318A002D1A43 /* MMTransition.swift */,
 				5EC9C07A1EAE2C7C002D1A43 /* BaseTransition.swift */,
-				5EC9C07B1EAE2C7C002D1A43 /* MMAnimator.swift */,
 				5EC9C07D1EAE2C7C002D1A43 /* Navigation */,
 				5EC9C0811EAE2C7C002D1A43 /* PresentModal */,
 			);
@@ -438,12 +438,12 @@
 				8B69427A366F514EB6C40B946E18F908 /* MMTransition-dummy.m in Sources */,
 				5EC9C0921EAE2C7C002D1A43 /* DialogConfig.swift in Sources */,
 				5EEC25B61EAF093600DC3F93 /* MMPushAnimator.swift in Sources */,
-				5EC9C08D1EAE2C7C002D1A43 /* MMAnimator.swift in Sources */,
 				5EC9C0971EAE2C7C002D1A43 /* MenuTransition.swift in Sources */,
 				5EC9C08C1EAE2C7C002D1A43 /* BaseTransition.swift in Sources */,
 				5EC9C0931EAE2C7C002D1A43 /* DialogPresentationController.swift in Sources */,
 				5EC9C09B1EAE318A002D1A43 /* MMTransition.swift in Sources */,
 				5EEC25B41EAF08AE00DC3F93 /* MMPresentAnimator.swift in Sources */,
+				5EEC25B81EAF248B00DC3F93 /* UIView+Shape.swift in Sources */,
 				5EC9C0911EAE2C7C002D1A43 /* BasePresentationController.swift in Sources */,
 				5EC9C0961EAE2C7C002D1A43 /* MenuPresentationController.swift in Sources */,
 				5EC9C0941EAE2C7C002D1A43 /* DialogTransition.swift in Sources */,
