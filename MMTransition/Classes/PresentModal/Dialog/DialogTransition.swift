@@ -48,6 +48,7 @@ public class DialogTransition: BasePresentTransition , UIViewControllerAnimatedT
             self.animate(animations: {
                 fromView.view.transform = self.direction(type: type, frame: container.frame)
             }, completion: { (finish) in
+                fromView.view.transform = .identity
                 context.completeTransition(!context.transitionWasCancelled)
             })
         }
@@ -90,6 +91,7 @@ public class DialogTransition: BasePresentTransition , UIViewControllerAnimatedT
             self.animate(animations: {
                 fromView.view.transform = CGAffineTransform.init(scaleX: 0.00001, y: 0.0001)
             }, completion: { (finish) in
+                fromView.view.transform = .identity
                 context.completeTransition(!context.transitionWasCancelled)
             })
         }

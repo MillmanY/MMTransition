@@ -12,14 +12,13 @@ public class MMPresentAnimator: NSObject , UIViewControllerTransitioningDelegate
     public typealias T = PresentConfig
     public var config:T?
     
-    internal let base:UIViewController
+    unowned let base:UIViewController
     
     public init(_ base: UIViewController) {
         self.base = base
         super.init()
         base.modalPresentationStyle = .custom
         base.transitioningDelegate = self
-        
     }
     
     public func dialog<T: DialogConfig>(setting: (_ config: T)->Void ) {

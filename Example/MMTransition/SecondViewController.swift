@@ -20,6 +20,11 @@ class SecondViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -27,5 +32,9 @@ class SecondViewController: UIViewController {
  
     @IBAction func dismiss() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("Finish")
     }
 }

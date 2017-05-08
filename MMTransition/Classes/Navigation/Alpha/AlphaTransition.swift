@@ -16,20 +16,21 @@ class AlphaTransition: BaseNavTransition , UIViewControllerAnimatedTransitioning
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let container = transitionContext.containerView
-        let to   = transitionContext.view(forKey: .to)
-        to?.alpha = 0.0
-        container.addSubview(to!)
+        let to   = transitionContext.viewController(forKey: .to)
+        
+        to?.view.alpha = 0.0
+        container.addSubview(to!.view)
         switch self.operation {
         case .push:
             UIView.animate(withDuration: config.duration, animations: {
-                to?.alpha = 1.0
+                to?.view.alpha = 1.0
 
             }, completion: { (finish) in
                 transitionContext.completeTransition(true)
             })
             
         case .pop:
-            to?.alpha = 1.0
+            to?.view.alpha = 1.0
             let from   = transitionContext.view(forKey: .from)
             container.addSubview(from!)
             UIView.animate(withDuration: config.duration, animations: {

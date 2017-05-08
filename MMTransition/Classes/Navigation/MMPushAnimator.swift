@@ -12,7 +12,7 @@ public typealias T = NavConfig
 public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
     public var config:T?
     
-    internal let base:UIViewController
+    unowned let base:UIViewController
 
     public init(_ base: UINavigationController) {
         self.base = base
@@ -23,6 +23,10 @@ public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
     public func alpha<T: AlphaConfig>(setting: (_ config: T)->Void ) {
         config = AlphaConfig()
         setting(self.config! as! T)
+    }
+    
+    public func removeAnimate() {
+        self.config = nil
     }
     
     public func navigationController(_ navigationController: UINavigationController,

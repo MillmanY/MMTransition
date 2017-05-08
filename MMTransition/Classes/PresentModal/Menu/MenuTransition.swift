@@ -53,7 +53,6 @@ class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransition
 
             self.animate(animations: {
                 toVC.view.transform = .identity
-            
             }, completion: { (finish) in
                 context.completeTransition(!context.transitionWasCancelled)
             })
@@ -62,6 +61,7 @@ class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransition
             self.animate(animations: {
                 fromView.view.transform = CGAffineTransform(translationX: 0, y: height)
             }, completion: { (finish) in
+                fromView.view.transform = .identity
                 context.completeTransition(!context.transitionWasCancelled)
             })
         }
@@ -89,6 +89,7 @@ class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransition
             self.animate(animations: {
                 fromView.view.transform = CGAffineTransform(translationX: x, y: 0)
             }, completion: { (finish) in
+                fromView.view.transform = .identity
                 context.completeTransition(!context.transitionWasCancelled)
             })
         }
