@@ -58,7 +58,8 @@
     //your pass view's superView 
     var containerView: UIView { get }
     
-    // Thsis to method can let you get view from previous controller
+    // Thsis two method can let you get view from previous controller
+    // you need set your constraint when transition completed
     func transitionWillStart(passView: UIView)
     func transitionCompleted(passView: UIView)
 
