@@ -47,13 +47,13 @@
     self.present(second, animated: true, completion: nil)
 ## Use in transition
 
-1.PassViewFromProtocol use from where you want to pass view controller 
+1.PassViewFromProtocol use on where you want to pass view 
     
     // Thsis is you passView
     var passView: UIView { get }
     // when transition dismiss or popView you need reset your UI
     func completed(passView: UIView,superV: UIView)
-2.PassViewToProtocol is your target controller
+2.PassViewToProtocol use on target controller
     
     //your pass view's superView 
     var containerView: UIView { get }
