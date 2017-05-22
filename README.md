@@ -13,6 +13,8 @@
 ## Demo
 ![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/dialog.gif)
 ![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/menu.gif)
+![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/demo2.gif)
+
 
 ## Requirements
     iOS 8.0+
@@ -43,6 +45,22 @@
     }
 
     self.present(second, animated: true, completion: nil)
+## Use in transition
+
+1.PassViewFromProtocol use from where you want to pass view controller 
+    
+    // Thsis is you passView
+    var passView: UIView { get }
+    // when transition dismiss or popView you need reset your UI
+    func completed(passView: UIView,superV: UIView)
+2.PassViewToProtocol is your target controller
+    
+    //your pass view's superView 
+    var containerView: UIView { get }
+    
+    // Thsis to method can let you get view from previous controller
+    func transitionWillStart(passView: UIView)
+    func transitionCompleted(passView: UIView)
 
 ## Setting parameter in activity closure
 
