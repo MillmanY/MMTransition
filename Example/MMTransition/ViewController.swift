@@ -9,8 +9,9 @@
 import UIKit
 import MMTransition
 
-let headerArr = ["Dialog","Menu","Navigation Push"]
-let titleArr = [["DialogType : PreferSize Animate: Scale(0 to 1)" ,
+let headerArr = ["PassView","Dialog","Menu","Navigation Push"]
+let titleArr = [["Demo PresentViewController PassView","Demo Navigation PushViewController PassView"],
+                ["DialogType : PreferSize Animate: Scale(0 to 1)" ,
                  "DialogType : CustomSize Animate: Alpha(0 to 1)" ,
                  "Animate - Left",
                  "Animate - Right",
@@ -27,7 +28,7 @@ let titleArr = [["DialogType : PreferSize Animate: Scale(0 to 1)" ,
                   ["Alpha"]]
 
 class ViewController: UIViewController {
-    
+    var selectIdx = -1
     @IBOutlet weak var tableView:UITableView!
     
     override func viewDidLoad() {
@@ -46,10 +47,12 @@ extension ViewController: UITableViewDelegate {
         DispatchQueue.main.async {
             switch indexPath.section {
             case 0:
-                self.dialog(row: indexPath.row)
+                self.passView(row: indexPath.row)
             case 1:
-                self.menu(row: indexPath.row)
+                self.dialog(row: indexPath.row)
             case 2:
+                self.menu(row: indexPath.row)
+            case 3:
                 self.push(row: indexPath.row)
             default:
                 break
@@ -57,13 +60,45 @@ extension ViewController: UITableViewDelegate {
         }
     }
 }
+// Pass View
+extension ViewController: PassViewFromProtocol {
+    func passView(row: Int) {
+        selectIdx = row
+        
+        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = story.instantiateViewController(withIdentifier: "PassViewController")
+        
+        if row == 0 {
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            self.mmT.push.pass(setting: { (_) in})
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    var passView: UIView {
+        
+        let path = IndexPath(row: selectIdx, section: 0)
+        if let cell = tableView.cellForRow(at: path) as? CustomCell {
+            return cell.imgView
+        }
+        return UIView()
+    }
+    
+    func completed(passView: UIView,superV: UIView) {
+        
+        superV.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": passView]))
+        superV.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": passView]))
+    }
+}
+
 // Push
 extension ViewController {
     fileprivate func push(row:Int) {
         let story = UIStoryboard.init(name: "Main", bundle: nil)
         let second = story.instantiateViewController(withIdentifier: "Second")
         
-        self.navigationController?.mmT.push.alpha(setting: { (config) in
+        self.mmT.push.alpha(setting: { (config) in
             
         })
         self.navigationController?.pushViewController(second, animated: true)
@@ -172,12 +207,19 @@ extension ViewController  {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
-        if let label = cell.viewWithTag(100) as? UILabel {
-            label.text = titleArr[indexPath.section][indexPath.row]
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
+            cell.labTitle.text = titleArr[indexPath.section][indexPath.row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
+            if let label = cell.viewWithTag(100) as? UILabel {
+                label.text = titleArr[indexPath.section][indexPath.row]
+            }
+            cell.selectionStyle = .none
+            return cell
         }
-        cell.selectionStyle = .none
-        return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

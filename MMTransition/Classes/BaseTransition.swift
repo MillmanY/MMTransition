@@ -10,6 +10,7 @@ import UIKit
 
 public class BasePresentTransition: NSObject {
     var isPresent = true
+    var source: UIViewController?
     internal var config: PresentConfig!
 
     convenience init(config: PresentConfig , isPresent: Bool) {
@@ -31,6 +32,7 @@ public class BasePresentTransition: NSObject {
 
 public class BaseNavTransition: NSObject {
     var operation:UINavigationControllerOperation = .none
+    var source: UIViewController?
     internal var config:NavConfig!
     
     convenience init(config: NavConfig , operation: UINavigationControllerOperation) {

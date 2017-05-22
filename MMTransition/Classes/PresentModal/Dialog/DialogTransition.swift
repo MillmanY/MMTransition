@@ -28,8 +28,7 @@ public class DialogTransition: BasePresentTransition , UIViewControllerAnimatedT
     func direction(type:DirectionType , context:UIViewControllerContextTransitioning) {
         let container = context.containerView
         if self.isPresent {
-            
-            let toVC = context.viewController(forKey: .to)!            
+            let toVC = context.viewController(forKey: .to)!
             let finalFrame = context.finalFrame(for: toVC)
             toVC.view.frame = finalFrame  
             toVC.view.transform = self.direction(type: type, frame: container.frame)

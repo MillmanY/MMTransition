@@ -18,7 +18,7 @@ public class BasePresentationController: UIPresentationController {
         self.config = config
     }
     
-    public var maskView:UIView = {
+    public var maskView: UIView = {
         let view = UIView()
         view.alpha = 0.0
         view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
