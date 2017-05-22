@@ -20,7 +20,7 @@
     iOS 8.0+
     Xcode 8.0+
     Swift 3.0+
-## Use
+## Use (Menu / Dialog)
 1.Add in your present controller
   
     class DialogViewController: UIViewController {
@@ -45,7 +45,7 @@
     }
 
     self.present(second, animated: true, completion: nil)
-## Use in transition
+## Use (pass view)
 
 1.PassViewFromProtocol use on where you want to pass view 
     
