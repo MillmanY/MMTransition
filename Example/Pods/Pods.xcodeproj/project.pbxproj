@@ -12,26 +12,26 @@
 		3ABAF1ADDF22223F56829278CD036FFE /* MMTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42164C1F3EB9D3919BFE49C12F42F85B /* MMTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F5DD07234E4F3CB937B76814E9F7819 /* Pods-MMTransition_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FFC07EBCFECD4D5B15A5CD5B422D52 /* Pods-MMTransition_Tests-dummy.m */; };
 		5DA4688A3418A47293886A2726984846 /* Pods-MMTransition_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4705ADB5BEE210533C011DC958E4C6D /* Pods-MMTransition_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E8D93681ED311C500BF5FDB /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D934D1ED311C500BF5FDB /* BaseTransition.swift */; };
-		5E8D93691ED311C500BF5FDB /* MMTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D934E1ED311C500BF5FDB /* MMTransition.swift */; };
-		5E8D936A1ED311C500BF5FDB /* AlphaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93511ED311C500BF5FDB /* AlphaConfig.swift */; };
-		5E8D936B1ED311C500BF5FDB /* AlphaTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93521ED311C500BF5FDB /* AlphaTransition.swift */; };
-		5E8D936C1ED311C500BF5FDB /* MMPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93531ED311C500BF5FDB /* MMPushAnimator.swift */; };
-		5E8D936D1ED311C500BF5FDB /* PassViewPushConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93551ED311C500BF5FDB /* PassViewPushConfig.swift */; };
-		5E8D936E1ED311C500BF5FDB /* PassViewPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93561ED311C500BF5FDB /* PassViewPushTransition.swift */; };
-		5E8D936F1ED311C500BF5FDB /* BasePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93581ED311C500BF5FDB /* BasePresentationController.swift */; };
-		5E8D93701ED311C500BF5FDB /* DialogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D935A1ED311C500BF5FDB /* DialogConfig.swift */; };
-		5E8D93711ED311C500BF5FDB /* DialogPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D935B1ED311C500BF5FDB /* DialogPresentationController.swift */; };
-		5E8D93721ED311C500BF5FDB /* DialogTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D935C1ED311C500BF5FDB /* DialogTransition.swift */; };
-		5E8D93731ED311C500BF5FDB /* MenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D935E1ED311C500BF5FDB /* MenuConfig.swift */; };
-		5E8D93741ED311C500BF5FDB /* MenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D935F1ED311C500BF5FDB /* MenuPresentationController.swift */; };
-		5E8D93751ED311C500BF5FDB /* MenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93601ED311C500BF5FDB /* MenuTransition.swift */; };
-		5E8D93761ED311C500BF5FDB /* MMPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93611ED311C500BF5FDB /* MMPresentAnimator.swift */; };
-		5E8D93771ED311C500BF5FDB /* PassViewPresentatinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93631ED311C500BF5FDB /* PassViewPresentatinController.swift */; };
-		5E8D93781ED311C500BF5FDB /* PassViewPresentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93641ED311C500BF5FDB /* PassViewPresentConfig.swift */; };
-		5E8D93791ED311C500BF5FDB /* PassViewPresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93651ED311C500BF5FDB /* PassViewPresentTransition.swift */; };
-		5E8D937A1ED311C500BF5FDB /* TransitionDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93661ED311C500BF5FDB /* TransitionDefine.swift */; };
-		5E8D937B1ED311C500BF5FDB /* UIView+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D93671ED311C500BF5FDB /* UIView+Shape.swift */; };
+		5EEF92381ED7FD97002D8FDF /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF921D1ED7FD97002D8FDF /* BaseTransition.swift */; };
+		5EEF92391ED7FD97002D8FDF /* MMTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF921E1ED7FD97002D8FDF /* MMTransition.swift */; };
+		5EEF923A1ED7FD97002D8FDF /* AlphaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92211ED7FD97002D8FDF /* AlphaConfig.swift */; };
+		5EEF923B1ED7FD97002D8FDF /* AlphaTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92221ED7FD97002D8FDF /* AlphaTransition.swift */; };
+		5EEF923C1ED7FD97002D8FDF /* MMPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92231ED7FD97002D8FDF /* MMPushAnimator.swift */; };
+		5EEF923D1ED7FD97002D8FDF /* PassViewPushConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92251ED7FD97002D8FDF /* PassViewPushConfig.swift */; };
+		5EEF923E1ED7FD97002D8FDF /* PassViewPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92261ED7FD97002D8FDF /* PassViewPushTransition.swift */; };
+		5EEF923F1ED7FD97002D8FDF /* BasePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92281ED7FD97002D8FDF /* BasePresentationController.swift */; };
+		5EEF92401ED7FD97002D8FDF /* DialogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF922A1ED7FD97002D8FDF /* DialogConfig.swift */; };
+		5EEF92411ED7FD97002D8FDF /* DialogPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF922B1ED7FD97002D8FDF /* DialogPresentationController.swift */; };
+		5EEF92421ED7FD97002D8FDF /* DialogTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF922C1ED7FD97002D8FDF /* DialogTransition.swift */; };
+		5EEF92431ED7FD97002D8FDF /* MenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF922E1ED7FD97002D8FDF /* MenuConfig.swift */; };
+		5EEF92441ED7FD97002D8FDF /* MenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF922F1ED7FD97002D8FDF /* MenuPresentationController.swift */; };
+		5EEF92451ED7FD97002D8FDF /* MenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92301ED7FD97002D8FDF /* MenuTransition.swift */; };
+		5EEF92461ED7FD97002D8FDF /* MMPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92311ED7FD97002D8FDF /* MMPresentAnimator.swift */; };
+		5EEF92471ED7FD97002D8FDF /* PassViewPresentatinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92331ED7FD97002D8FDF /* PassViewPresentatinController.swift */; };
+		5EEF92481ED7FD97002D8FDF /* PassViewPresentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92341ED7FD97002D8FDF /* PassViewPresentConfig.swift */; };
+		5EEF92491ED7FD97002D8FDF /* PassViewPresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92351ED7FD97002D8FDF /* PassViewPresentTransition.swift */; };
+		5EEF924A1ED7FD97002D8FDF /* TransitionDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92361ED7FD97002D8FDF /* TransitionDefine.swift */; };
+		5EEF924B1ED7FD97002D8FDF /* UIView+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92371ED7FD97002D8FDF /* UIView+Shape.swift */; };
 		8B69427A366F514EB6C40B946E18F908 /* MMTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5C1655595ADCC7574B1B97AEDD3A2 /* MMTransition-dummy.m */; };
 		9E8078562DE02635AE515B00BBD2EAAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		B92E36D9069339A3C4BB03442D273B52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -61,27 +61,27 @@
 		50947F9EABF599F2D6925A3AE2B40435 /* Pods-MMTransition_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MMTransition_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		52A47AC79EBA391699010888BE5774A1 /* Pods-MMTransition_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MMTransition_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5BB783EAC0D8730E55697C04EB048D36 /* Pods-MMTransition_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MMTransition_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		5E8D934C1ED311C500BF5FDB /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		5E8D934D1ED311C500BF5FDB /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
-		5E8D934E1ED311C500BF5FDB /* MMTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTransition.swift; sourceTree = "<group>"; };
-		5E8D93511ED311C500BF5FDB /* AlphaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaConfig.swift; sourceTree = "<group>"; };
-		5E8D93521ED311C500BF5FDB /* AlphaTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaTransition.swift; sourceTree = "<group>"; };
-		5E8D93531ED311C500BF5FDB /* MMPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPushAnimator.swift; sourceTree = "<group>"; };
-		5E8D93551ED311C500BF5FDB /* PassViewPushConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPushConfig.swift; sourceTree = "<group>"; };
-		5E8D93561ED311C500BF5FDB /* PassViewPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPushTransition.swift; sourceTree = "<group>"; };
-		5E8D93581ED311C500BF5FDB /* BasePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresentationController.swift; sourceTree = "<group>"; };
-		5E8D935A1ED311C500BF5FDB /* DialogConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogConfig.swift; sourceTree = "<group>"; };
-		5E8D935B1ED311C500BF5FDB /* DialogPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogPresentationController.swift; sourceTree = "<group>"; };
-		5E8D935C1ED311C500BF5FDB /* DialogTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTransition.swift; sourceTree = "<group>"; };
-		5E8D935E1ED311C500BF5FDB /* MenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuConfig.swift; sourceTree = "<group>"; };
-		5E8D935F1ED311C500BF5FDB /* MenuPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPresentationController.swift; sourceTree = "<group>"; };
-		5E8D93601ED311C500BF5FDB /* MenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransition.swift; sourceTree = "<group>"; };
-		5E8D93611ED311C500BF5FDB /* MMPresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPresentAnimator.swift; sourceTree = "<group>"; };
-		5E8D93631ED311C500BF5FDB /* PassViewPresentatinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPresentatinController.swift; sourceTree = "<group>"; };
-		5E8D93641ED311C500BF5FDB /* PassViewPresentConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPresentConfig.swift; sourceTree = "<group>"; };
-		5E8D93651ED311C500BF5FDB /* PassViewPresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPresentTransition.swift; sourceTree = "<group>"; };
-		5E8D93661ED311C500BF5FDB /* TransitionDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDefine.swift; sourceTree = "<group>"; };
-		5E8D93671ED311C500BF5FDB /* UIView+Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shape.swift"; sourceTree = "<group>"; };
+		5EEF921C1ED7FD97002D8FDF /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		5EEF921D1ED7FD97002D8FDF /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
+		5EEF921E1ED7FD97002D8FDF /* MMTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTransition.swift; sourceTree = "<group>"; };
+		5EEF92211ED7FD97002D8FDF /* AlphaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaConfig.swift; sourceTree = "<group>"; };
+		5EEF92221ED7FD97002D8FDF /* AlphaTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaTransition.swift; sourceTree = "<group>"; };
+		5EEF92231ED7FD97002D8FDF /* MMPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPushAnimator.swift; sourceTree = "<group>"; };
+		5EEF92251ED7FD97002D8FDF /* PassViewPushConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPushConfig.swift; sourceTree = "<group>"; };
+		5EEF92261ED7FD97002D8FDF /* PassViewPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPushTransition.swift; sourceTree = "<group>"; };
+		5EEF92281ED7FD97002D8FDF /* BasePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresentationController.swift; sourceTree = "<group>"; };
+		5EEF922A1ED7FD97002D8FDF /* DialogConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogConfig.swift; sourceTree = "<group>"; };
+		5EEF922B1ED7FD97002D8FDF /* DialogPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogPresentationController.swift; sourceTree = "<group>"; };
+		5EEF922C1ED7FD97002D8FDF /* DialogTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTransition.swift; sourceTree = "<group>"; };
+		5EEF922E1ED7FD97002D8FDF /* MenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuConfig.swift; sourceTree = "<group>"; };
+		5EEF922F1ED7FD97002D8FDF /* MenuPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPresentationController.swift; sourceTree = "<group>"; };
+		5EEF92301ED7FD97002D8FDF /* MenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransition.swift; sourceTree = "<group>"; };
+		5EEF92311ED7FD97002D8FDF /* MMPresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPresentAnimator.swift; sourceTree = "<group>"; };
+		5EEF92331ED7FD97002D8FDF /* PassViewPresentatinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPresentatinController.swift; sourceTree = "<group>"; };
+		5EEF92341ED7FD97002D8FDF /* PassViewPresentConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPresentConfig.swift; sourceTree = "<group>"; };
+		5EEF92351ED7FD97002D8FDF /* PassViewPresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewPresentTransition.swift; sourceTree = "<group>"; };
+		5EEF92361ED7FD97002D8FDF /* TransitionDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDefine.swift; sourceTree = "<group>"; };
+		5EEF92371ED7FD97002D8FDF /* UIView+Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shape.swift"; sourceTree = "<group>"; };
 		5F48FE05D5233DA5FB46CC436E93005F /* Pods-MMTransition_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MMTransition_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		608F797B646333C1726D01D18430FF03 /* MMTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMTransition-prefix.pch"; sourceTree = "<group>"; };
 		7B09406FD76BD8189F5773CC80222F4F /* Pods-MMTransition_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MMTransition_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,86 +155,86 @@
 			path = "Example/Pods/Target Support Files/MMTransition";
 			sourceTree = "<group>";
 		};
-		5E8D934B1ED311C500BF5FDB /* Classes */ = {
+		5EEF921B1ED7FD97002D8FDF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D934C1ED311C500BF5FDB /* .gitkeep */,
-				5E8D934D1ED311C500BF5FDB /* BaseTransition.swift */,
-				5E8D934E1ED311C500BF5FDB /* MMTransition.swift */,
-				5E8D934F1ED311C500BF5FDB /* Navigation */,
-				5E8D93571ED311C500BF5FDB /* PresentModal */,
-				5E8D93661ED311C500BF5FDB /* TransitionDefine.swift */,
-				5E8D93671ED311C500BF5FDB /* UIView+Shape.swift */,
+				5EEF921C1ED7FD97002D8FDF /* .gitkeep */,
+				5EEF921D1ED7FD97002D8FDF /* BaseTransition.swift */,
+				5EEF921E1ED7FD97002D8FDF /* MMTransition.swift */,
+				5EEF921F1ED7FD97002D8FDF /* Navigation */,
+				5EEF92271ED7FD97002D8FDF /* PresentModal */,
+				5EEF92361ED7FD97002D8FDF /* TransitionDefine.swift */,
+				5EEF92371ED7FD97002D8FDF /* UIView+Shape.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		5E8D934F1ED311C500BF5FDB /* Navigation */ = {
+		5EEF921F1ED7FD97002D8FDF /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D93501ED311C500BF5FDB /* Alpha */,
-				5E8D93531ED311C500BF5FDB /* MMPushAnimator.swift */,
-				5E8D93541ED311C500BF5FDB /* ShowPassView */,
+				5EEF92201ED7FD97002D8FDF /* Alpha */,
+				5EEF92231ED7FD97002D8FDF /* MMPushAnimator.swift */,
+				5EEF92241ED7FD97002D8FDF /* ShowPassView */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		5E8D93501ED311C500BF5FDB /* Alpha */ = {
+		5EEF92201ED7FD97002D8FDF /* Alpha */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D93511ED311C500BF5FDB /* AlphaConfig.swift */,
-				5E8D93521ED311C500BF5FDB /* AlphaTransition.swift */,
+				5EEF92211ED7FD97002D8FDF /* AlphaConfig.swift */,
+				5EEF92221ED7FD97002D8FDF /* AlphaTransition.swift */,
 			);
 			path = Alpha;
 			sourceTree = "<group>";
 		};
-		5E8D93541ED311C500BF5FDB /* ShowPassView */ = {
+		5EEF92241ED7FD97002D8FDF /* ShowPassView */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D93551ED311C500BF5FDB /* PassViewPushConfig.swift */,
-				5E8D93561ED311C500BF5FDB /* PassViewPushTransition.swift */,
+				5EEF92251ED7FD97002D8FDF /* PassViewPushConfig.swift */,
+				5EEF92261ED7FD97002D8FDF /* PassViewPushTransition.swift */,
 			);
 			path = ShowPassView;
 			sourceTree = "<group>";
 		};
-		5E8D93571ED311C500BF5FDB /* PresentModal */ = {
+		5EEF92271ED7FD97002D8FDF /* PresentModal */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D93581ED311C500BF5FDB /* BasePresentationController.swift */,
-				5E8D93591ED311C500BF5FDB /* Dialog */,
-				5E8D935D1ED311C500BF5FDB /* Menu */,
-				5E8D93611ED311C500BF5FDB /* MMPresentAnimator.swift */,
-				5E8D93621ED311C500BF5FDB /* ShowPassView */,
+				5EEF92281ED7FD97002D8FDF /* BasePresentationController.swift */,
+				5EEF92291ED7FD97002D8FDF /* Dialog */,
+				5EEF922D1ED7FD97002D8FDF /* Menu */,
+				5EEF92311ED7FD97002D8FDF /* MMPresentAnimator.swift */,
+				5EEF92321ED7FD97002D8FDF /* ShowPassView */,
 			);
 			path = PresentModal;
 			sourceTree = "<group>";
 		};
-		5E8D93591ED311C500BF5FDB /* Dialog */ = {
+		5EEF92291ED7FD97002D8FDF /* Dialog */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D935A1ED311C500BF5FDB /* DialogConfig.swift */,
-				5E8D935B1ED311C500BF5FDB /* DialogPresentationController.swift */,
-				5E8D935C1ED311C500BF5FDB /* DialogTransition.swift */,
+				5EEF922A1ED7FD97002D8FDF /* DialogConfig.swift */,
+				5EEF922B1ED7FD97002D8FDF /* DialogPresentationController.swift */,
+				5EEF922C1ED7FD97002D8FDF /* DialogTransition.swift */,
 			);
 			path = Dialog;
 			sourceTree = "<group>";
 		};
-		5E8D935D1ED311C500BF5FDB /* Menu */ = {
+		5EEF922D1ED7FD97002D8FDF /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D935E1ED311C500BF5FDB /* MenuConfig.swift */,
-				5E8D935F1ED311C500BF5FDB /* MenuPresentationController.swift */,
-				5E8D93601ED311C500BF5FDB /* MenuTransition.swift */,
+				5EEF922E1ED7FD97002D8FDF /* MenuConfig.swift */,
+				5EEF922F1ED7FD97002D8FDF /* MenuPresentationController.swift */,
+				5EEF92301ED7FD97002D8FDF /* MenuTransition.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		5E8D93621ED311C500BF5FDB /* ShowPassView */ = {
+		5EEF92321ED7FD97002D8FDF /* ShowPassView */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D93631ED311C500BF5FDB /* PassViewPresentatinController.swift */,
-				5E8D93641ED311C500BF5FDB /* PassViewPresentConfig.swift */,
-				5E8D93651ED311C500BF5FDB /* PassViewPresentTransition.swift */,
+				5EEF92331ED7FD97002D8FDF /* PassViewPresentatinController.swift */,
+				5EEF92341ED7FD97002D8FDF /* PassViewPresentConfig.swift */,
+				5EEF92351ED7FD97002D8FDF /* PassViewPresentTransition.swift */,
 			);
 			path = ShowPassView;
 			sourceTree = "<group>";
@@ -332,7 +332,7 @@
 		F9412E62A7219B292C3CEB994112F4B4 /* MMTransition */ = {
 			isa = PBXGroup;
 			children = (
-				5E8D934B1ED311C500BF5FDB /* Classes */,
+				5EEF921B1ED7FD97002D8FDF /* Classes */,
 			);
 			path = MMTransition;
 			sourceTree = "<group>";
@@ -468,27 +468,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E8D936A1ED311C500BF5FDB /* AlphaConfig.swift in Sources */,
-				5E8D93691ED311C500BF5FDB /* MMTransition.swift in Sources */,
-				5E8D93741ED311C500BF5FDB /* MenuPresentationController.swift in Sources */,
+				5EEF923A1ED7FD97002D8FDF /* AlphaConfig.swift in Sources */,
+				5EEF92391ED7FD97002D8FDF /* MMTransition.swift in Sources */,
+				5EEF92441ED7FD97002D8FDF /* MenuPresentationController.swift in Sources */,
 				8B69427A366F514EB6C40B946E18F908 /* MMTransition-dummy.m in Sources */,
-				5E8D93751ED311C500BF5FDB /* MenuTransition.swift in Sources */,
-				5E8D93731ED311C500BF5FDB /* MenuConfig.swift in Sources */,
-				5E8D93771ED311C500BF5FDB /* PassViewPresentatinController.swift in Sources */,
-				5E8D93681ED311C500BF5FDB /* BaseTransition.swift in Sources */,
-				5E8D93721ED311C500BF5FDB /* DialogTransition.swift in Sources */,
-				5E8D93761ED311C500BF5FDB /* MMPresentAnimator.swift in Sources */,
-				5E8D936F1ED311C500BF5FDB /* BasePresentationController.swift in Sources */,
-				5E8D936E1ED311C500BF5FDB /* PassViewPushTransition.swift in Sources */,
-				5E8D93711ED311C500BF5FDB /* DialogPresentationController.swift in Sources */,
-				5E8D93781ED311C500BF5FDB /* PassViewPresentConfig.swift in Sources */,
-				5E8D936C1ED311C500BF5FDB /* MMPushAnimator.swift in Sources */,
-				5E8D937B1ED311C500BF5FDB /* UIView+Shape.swift in Sources */,
-				5E8D937A1ED311C500BF5FDB /* TransitionDefine.swift in Sources */,
-				5E8D93701ED311C500BF5FDB /* DialogConfig.swift in Sources */,
-				5E8D936B1ED311C500BF5FDB /* AlphaTransition.swift in Sources */,
-				5E8D936D1ED311C500BF5FDB /* PassViewPushConfig.swift in Sources */,
-				5E8D93791ED311C500BF5FDB /* PassViewPresentTransition.swift in Sources */,
+				5EEF92451ED7FD97002D8FDF /* MenuTransition.swift in Sources */,
+				5EEF92431ED7FD97002D8FDF /* MenuConfig.swift in Sources */,
+				5EEF92471ED7FD97002D8FDF /* PassViewPresentatinController.swift in Sources */,
+				5EEF92381ED7FD97002D8FDF /* BaseTransition.swift in Sources */,
+				5EEF92421ED7FD97002D8FDF /* DialogTransition.swift in Sources */,
+				5EEF92461ED7FD97002D8FDF /* MMPresentAnimator.swift in Sources */,
+				5EEF923F1ED7FD97002D8FDF /* BasePresentationController.swift in Sources */,
+				5EEF923E1ED7FD97002D8FDF /* PassViewPushTransition.swift in Sources */,
+				5EEF92411ED7FD97002D8FDF /* DialogPresentationController.swift in Sources */,
+				5EEF92481ED7FD97002D8FDF /* PassViewPresentConfig.swift in Sources */,
+				5EEF923C1ED7FD97002D8FDF /* MMPushAnimator.swift in Sources */,
+				5EEF924B1ED7FD97002D8FDF /* UIView+Shape.swift in Sources */,
+				5EEF924A1ED7FD97002D8FDF /* TransitionDefine.swift in Sources */,
+				5EEF92401ED7FD97002D8FDF /* DialogConfig.swift in Sources */,
+				5EEF923B1ED7FD97002D8FDF /* AlphaTransition.swift in Sources */,
+				5EEF923D1ED7FD97002D8FDF /* PassViewPushConfig.swift in Sources */,
+				5EEF92491ED7FD97002D8FDF /* PassViewPresentTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

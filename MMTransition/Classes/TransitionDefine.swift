@@ -54,9 +54,10 @@ public struct MMTransition<T> {
 
 extension NSObject: TransitionCompatible { }
 
-public protocol PassViewFromProtocol {
+@objc public protocol PassViewFromProtocol {
     var passView: UIView { get }
-    func completed(passView: UIView,superV: UIView)
+    @objc optional func backReplaceSuperView(original: UIView?) -> UIView?
+    func completed(passView: UIView,superV: UIView?)
 }
 
 public protocol PassViewToProtocol {

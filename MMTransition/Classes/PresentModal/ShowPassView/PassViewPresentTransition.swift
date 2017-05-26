@@ -51,34 +51,56 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
             })
             
         } else {
-
+            
             let from = transitionContext.viewController(forKey: .from)
             guard let config = self.config as? PassViewPresentConfig else {
                 return
             }
             
-            guard let pass = config.pass , let superV = config.passOriginalSuper  else {
+            guard let pass = config.pass  else {
                 return
             }
             
             guard let source = (self.source as? PassViewFromProtocol) else {
-                print("Need Implement PassViewFromProtocol")
+                print("Need Implement PassViewPresentingProtocol")
                 return
             }
-            from?.view.alpha = 0.0
-            let convertRect:CGRect = superV.convert(superV.frame, to: nil)
-            container.addSubview(pass)
+//            let convertRect:CGRect = superV.convert(superV.frame, to: nil)
+//            pass.frame = convertRect
+//            container.addSubview(pass)
+//            container.layoutIfNeeded()
+//            from?.view.backgroundColor = UIColor.clear
+//            self.animate(animations: {
+//            }, completion: { (finish) in
+//                config.passOriginalSuper?.addSubview(pass)
+//                superV.isHidden = false
+//                source.completed(passView: pass, superV: superV)
+//                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+//            })
+            
+            
+            let superV = source.backReplaceSuperView?(original: config.passOriginalSuper) ?? config.passOriginalSuper
+            let original:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
+            
+            let convertRect:CGRect = (superV != nil ) ? superV!.convert(superV!.frame, to: nil) : .zero
+            
+            if superV != nil {
+                container.addSubview(pass)
+            }
             container.layoutIfNeeded()
-            from?.view.backgroundColor = UIColor.clear
-            self.animate(animations: {
+            pass.frame = original
+            UIView.animate(withDuration: self.config.duration, animations: {
+                from?.view.alpha = 0.0
                 pass.frame = convertRect
             }, completion: { (finish) in
-                config.passOriginalSuper?.addSubview(pass)
+                superV?.addSubview(pass)
                 source.completed(passView: pass, superV: superV)
-                superV.isHidden = false
+                superV?.isHidden = false
                 from?.view.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                
             })
+
         }
     }
 }

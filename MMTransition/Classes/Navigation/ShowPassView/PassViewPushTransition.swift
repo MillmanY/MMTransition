@@ -37,14 +37,16 @@ public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimated
             let convertRect:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
             let finalFrame = transitionContext.finalFrame(for: toVC)
             let originalColor = toVC.view.backgroundColor
+           
             toVC.view.backgroundColor = UIColor.clear
             toVC.view.frame = finalFrame
-            toVC.view.addSubview(pass)
-            toVC.view.layoutIfNeeded()
+            container.addSubview(pass)
+            container.layoutIfNeeded()
             pass.frame = convertRect
-            self.animate(animations: {
+            UIView.animate(withDuration: self.config.duration, animations: {
                 pass.frame = passContainer.frame
             }, completion: { (finish) in
+                pass.frame = passContainer.frame
                 passContainer.addSubview(pass)
                 toVC.view.backgroundColor = originalColor
                 (toVC as? PassViewToProtocol)?.transitionCompleted(passView: pass)
@@ -56,7 +58,7 @@ public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimated
                 return
             }
             
-            guard let pass = config.pass , let superV = config.passOriginalSuper  else {
+            guard let pass = config.pass else {
                 return
             }
             
@@ -64,20 +66,27 @@ public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimated
                 print("Need Implement PassViewFromProtocol")
                 return
             }
-            from?.view.alpha = 0.0
-            let convertRect:CGRect = superV.convert(superV.frame, to: nil)
-            container.addSubview(pass)
+            let superV = source.backReplaceSuperView?(original: config.passOriginalSuper) ?? config.passOriginalSuper
+            let original:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
+
+            let convertRect:CGRect = (superV != nil ) ? superV!.convert(superV!.frame, to: nil) : .zero
+            
+            if superV != nil {
+                container.addSubview(pass)
+            }
             container.layoutIfNeeded()
-            from?.view.backgroundColor = UIColor.clear
-            self.animate(animations: {
+            pass.frame = original
+            UIView.animate(withDuration: self.config.duration, animations: {
+                from?.view.alpha = 0.0
                 pass.frame = convertRect
             }, completion: { (finish) in
-                config.passOriginalSuper?.addSubview(pass)
+                superV?.addSubview(pass)
                 source.completed(passView: pass, superV: superV)
-                superV.isHidden = false
+                superV?.isHidden = false
                 from?.view.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            })            
+                
+            })
         default:
             break
         }

@@ -22,11 +22,13 @@ public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
 
     public func alpha<T: AlphaConfig>(setting: (_ config: T)->Void ) {
         config = AlphaConfig()
+        self.transition = nil
         setting(self.config! as! T)
     }
     
     public func pass<T: PassViewPushConfig>(setting: (_ config: T)->Void) {
         self.config = PassViewPushConfig()
+        self.transition = nil
         setting(self.config! as! T)
     }
 
