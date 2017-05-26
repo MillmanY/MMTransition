@@ -13,12 +13,14 @@
 ## Demo
 ![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/dialog.gif)
 ![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/menu.gif)
+![demo](https://github.com/MillmanY/MMTransition/blob/master/demo/demo2.gif)
+
 
 ## Requirements
     iOS 8.0+
     Xcode 8.0+
     Swift 3.0+
-## Use
+## Use (Menu / Dialog)
 1.Add in your present controller
   
     class DialogViewController: UIViewController {
@@ -43,6 +45,23 @@
     }
 
     self.present(second, animated: true, completion: nil)
+## Use (pass view)
+
+1.PassViewFromProtocol use on where you want to pass view 
+    
+    // Thsis is you passView
+    var passView: UIView { get }
+    // when transition dismiss or popView you need reset your UI
+    func completed(passView: UIView,superV: UIView)
+2.PassViewToProtocol use on target controller
+    
+    //your pass view's superView 
+    var containerView: UIView { get }
+    
+    // Thsis two method can let you get view from previous controller
+    // you need set your constraint when transition completed
+    func transitionWillStart(passView: UIView)
+    func transitionCompleted(passView: UIView)
 
 ## Setting parameter in activity closure
 
