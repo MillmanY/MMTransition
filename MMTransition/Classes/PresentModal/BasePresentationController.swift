@@ -9,13 +9,16 @@
 import UIKit
 
 public class BasePresentationController: UIPresentationController {
-    internal var config:PresentConfig!
-    public convenience init(presentedViewController: UIViewController, presenting
-        presentingViewController: UIViewController? ,
-                            config:PresentConfig) {
-        
+    internal var config: PresentConfig!
+    public convenience init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, config: PresentConfig) {
         self.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         self.config = config
+    }
+    
+    @objc public func maskTap(gesture: UITapGestureRecognizer) {
+        if self.config.dismissTapMask {
+            self.presentedViewController.dismiss(animated: true, completion: nil)
+        }
     }
     
     public var maskView: UIView = {
@@ -27,8 +30,14 @@ public class BasePresentationController: UIPresentationController {
     
     public override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
-        if let c = containerView , maskView.superview == nil {
-            maskView.isHidden = !config.isShowMask
+        if config.shouldApperancePresentingController {
+            self.presentingViewController.beginAppearanceTransition(false, animated: true)
+            self.presentingViewController.endAppearanceTransition()
+        }
+        if let c = containerView, maskView.superview == nil, config.isShowMask {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(BasePresentationController.maskTap(gesture:)))
+            gesture.numberOfTapsRequired = 1
+            maskView.addGestureRecognizer(gesture)
             c.addSubview(maskView)
         }
         let opactiy = self.config.presentView.opacity
@@ -44,11 +53,14 @@ public class BasePresentationController: UIPresentationController {
     public override func dismissalTransitionDidEnd(_ completed: Bool) {
         super.dismissalTransitionDidEnd(completed)
         if completed {
-            maskView.isHidden = !config.isShowMask
             maskView.removeFromSuperview()
             UIView.animate(withDuration: config.duration, animations: {
                 self.presentingViewController.view.transform = .identity
             })
+            if config.shouldApperancePresentingController {
+                self.presentingViewController.beginAppearanceTransition(true, animated: true)
+                self.presentingViewController.endAppearanceTransition()
+            }
         }
     }
     
@@ -68,7 +80,6 @@ public class BasePresentationController: UIPresentationController {
     }
     
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
         coordinator.animate(alongsideTransition: { (context) in
             // Prevent Scale error
             if let c = self.containerView {

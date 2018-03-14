@@ -20,7 +20,6 @@ public class BasePresentTransition: NSObject {
     }
 
     func animate(animations: @escaping () -> Void , completion:((Bool) -> Void)?) {
-        
         if config.damping == 0.0 {
             UIView.animate(withDuration: config.duration, animations: animations, completion: completion)
         } else {
@@ -42,7 +41,6 @@ public class BaseNavTransition: NSObject {
     }
     
     func animate(animations: @escaping () -> Void , completion:((Bool) -> Void)?) {
-        
         if config.damping == 0.0 {
             UIView.animate(withDuration: config.duration, animations: animations, completion: completion)
         } else {

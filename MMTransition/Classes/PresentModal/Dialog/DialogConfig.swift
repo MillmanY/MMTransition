@@ -27,7 +27,9 @@ public enum DialogAnimateType {
 }
 
 public class DialogConfig: NSObject , PresentConfig {
+    public var shouldApperancePresentingController: Bool = true
     public var isShowMask: Bool = true
+    public var dismissTapMask: Bool = false
     public var presentingScale:CGFloat = 1.0
     public var damping: CGFloat = 0.0
     public var animationOption:UIViewAnimationOptions = .curveLinear

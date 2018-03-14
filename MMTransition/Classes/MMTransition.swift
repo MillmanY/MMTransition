@@ -20,18 +20,6 @@ public extension MMTransition where T: UIViewController {
         return m
     }
     
-    var push: MMPushAnimator {
-        if let v = objc_getAssociatedObject(base, &mmPushKey) {
-            return v as! MMPushAnimator
-        }
-        let m = MMPushAnimator(self.base)
-        objc_setAssociatedObject(base, &mmPushKey, m, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        return m
-    }
-    
-}
-
-//public extension MMTransition where T: UINavigationController {
 //    var push: MMPushAnimator {
 //        if let v = objc_getAssociatedObject(base, &mmPushKey) {
 //            return v as! MMPushAnimator
@@ -40,5 +28,17 @@ public extension MMTransition where T: UIViewController {
 //        objc_setAssociatedObject(base, &mmPushKey, m, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 //        return m
 //    }
-//}
+    
+}
+
+public extension MMTransition where T: UINavigationController {
+    var push: MMPushAnimator {
+        if let v = objc_getAssociatedObject(base, &mmPushKey) {
+            return v as! MMPushAnimator
+        }
+        let m = MMPushAnimator(self.base)
+        objc_setAssociatedObject(base, &mmPushKey, m, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return m
+    }
+}
 

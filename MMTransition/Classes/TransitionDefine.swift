@@ -9,16 +9,18 @@
 import Foundation
 
 public protocol Config {
-    var isShowMask:Bool {get set}
-    var damping : CGFloat { get set }
-    var springVelocity : CGFloat { get set }
-    var animationOption:UIViewAnimationOptions { get set }
-    var duration : TimeInterval { get set }
+    var dismissTapMask: Bool {get set}
+    var isShowMask: Bool {get set}
+    var damping: CGFloat { get set }
+    var springVelocity: CGFloat { get set }
+    var animationOption: UIViewAnimationOptions { get set }
+    var duration: TimeInterval { get set }
 }
 
 public protocol PresentConfig: Config {
-    var presentingScale:CGFloat  { get set }
-    var presentView:(opacity: CGFloat ,radius: CGFloat) {get set}
+    var shouldApperancePresentingController: Bool { get set }
+    var presentingScale: CGFloat  { get set }
+    var presentView: (opacity: CGFloat,radius: CGFloat) {get set}
 }
 
 public protocol NavConfig: Config {
@@ -46,15 +48,15 @@ extension TransitionCompatible {
 }
 
 public struct MMTransition<T> {
-    public let base:T
+    public let base: T
     init(_ base: T) {
         self.base = base
     }
 }
 
 extension NSObject: TransitionCompatible { }
-
 @objc public protocol PassViewFromProtocol {
+    @objc optional func willPassView() -> Bool
     var passView: UIView { get }
     @objc optional func backReplaceSuperView(original: UIView?) -> UIView?
     func completed(passView: UIView,superV: UIView?)

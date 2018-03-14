@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransitioning{
+class MenuTransition: BasePresentTransition, UIViewControllerAnimatedTransitioning{
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return config.duration
     }
@@ -38,10 +38,43 @@ class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransition
             self.slide(context: transitionContext, width: width, params: 1)
         case .rightFullScreen:
             self.slide(context: transitionContext, width: width, params: -1)
+        case .topFullScreen(let margin):
+            self.top(context: transitionContext, height: height, params: 1, margin: margin)
         }
     }
     
-    func bottom(context:UIViewControllerContextTransitioning , height:CGFloat) {
+    func top(context: UIViewControllerContextTransitioning, height: CGFloat, params: CGFloat, margin: CGFloat) {
+        let container = context.containerView
+        container.frame = CGRect(origin: CGPoint(x: container.frame.minX, y: margin),
+                                 size: container.frame.size)
+        container.clipsToBounds = true
+        container.layoutIfNeeded()
+        let y = -height * params
+        if self.isPresent {
+            let toVC = context.viewController(forKey: .to)!
+            let finalFrame = context.finalFrame(for: toVC)
+            toVC.view.frame = finalFrame
+            container.addSubview(toVC.view)
+            
+            toVC.view.transform = CGAffineTransform(translationX: 0, y: y)
+
+            self.animate(animations: {
+                toVC.view.transform = .identity
+            }, completion: { (finish) in
+                context.completeTransition(!context.transitionWasCancelled)
+            })
+        } else {
+            let fromView = context.viewController(forKey: .from)!
+            self.animate(animations: {
+                fromView.view.transform = CGAffineTransform(translationX: 0, y: y)
+            }, completion: { (finish) in
+                fromView.view.transform = .identity
+                context.completeTransition(!context.transitionWasCancelled)
+            })
+        }
+    }
+    
+    func bottom(context: UIViewControllerContextTransitioning, height:CGFloat) {
         let container = context.containerView
 
         if self.isPresent {
@@ -67,7 +100,7 @@ class MenuTransition: BasePresentTransition , UIViewControllerAnimatedTransition
         }
     }
     
-    func slide(context:UIViewControllerContextTransitioning , width:CGFloat,params:CGFloat) {
+    func slide(context: UIViewControllerContextTransitioning, width: CGFloat, params: CGFloat) {
         let container = context.containerView
         let x = -width * params
         if self.isPresent {

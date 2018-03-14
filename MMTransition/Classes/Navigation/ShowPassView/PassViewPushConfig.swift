@@ -12,6 +12,7 @@ public class PassViewPushConfig: NSObject ,NavConfig {
     weak var passOriginalSuper: UIView?
     weak var pass: UIView?
     
+    public var dismissTapMask: Bool = false
     public var isShowMask: Bool = true
     public var presentingScale:CGFloat = 1.0
     public var damping: CGFloat = 0.0

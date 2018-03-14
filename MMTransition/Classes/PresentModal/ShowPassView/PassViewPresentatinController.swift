@@ -18,7 +18,7 @@ class PassViewPresentatinController: BasePresentationController {
     
     public override var frameOfPresentedViewInContainerView: CGRect {
         
-        get {            
+        get {
             return containerView?.frame ?? .zero
         } set {}
     }

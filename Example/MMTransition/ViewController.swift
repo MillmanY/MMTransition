@@ -27,6 +27,7 @@ let titleArr = [["Demo PresentViewController PassView","Demo Navigation PushView
                   "Menu full screen - Right"],
                   ["Alpha"]]
 
+
 class ViewController: UIViewController {
     var selectIdx = -1
     @IBOutlet weak var tableView:UITableView!
@@ -62,16 +63,17 @@ extension ViewController: UITableViewDelegate {
 }
 // Pass View
 extension ViewController: PassViewFromProtocol {
+    
     func passView(row: Int) {
         selectIdx = row
         
-        let story = UIStoryboard.init(name: "Main", bundle: nil)
+        let story = UIStoryboard(name: "Main", bundle: nil)
         let vc = story.instantiateViewController(withIdentifier: "PassViewController")
         
         if row == 0 {
             self.present(vc, animated: true, completion: nil)
         } else {
-            self.mmT.push.pass(setting: { (_) in})
+            self.navigationController?.mmT.push.pass(setting: {_ in })
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -97,10 +99,7 @@ extension ViewController {
     fileprivate func push(row:Int) {
         let story = UIStoryboard.init(name: "Main", bundle: nil)
         let second = story.instantiateViewController(withIdentifier: "Second")
-        
-        self.mmT.push.alpha(setting: { (config) in
-            
-        })
+        self.navigationController?.mmT.push.alpha(setting: {_ in })
         self.navigationController?.pushViewController(second, animated: true)
     }
 }

@@ -12,8 +12,7 @@ import UIKit
 var ShapeKey = "ShapeKey"
 
 extension UIView {
-    
-    var mShape:TransitionShape {
+    var mShape: TransitionShape {
         set {
             objc_setAssociatedObject(self, &ShapeKey, newValue, .OBJC_ASSOCIATION_RETAIN)
         } get {
@@ -28,7 +27,6 @@ extension UIView {
 }
 
 class TransitionShape: NSObject {
-    
     internal let view: UIView
     internal init(view: UIView) {
         self.view = view

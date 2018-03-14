@@ -8,17 +8,17 @@
 
 import UIKit
 
-public class MMPresentAnimator: NSObject , UIViewControllerTransitioningDelegate{
+public class MMPresentAnimator: NSObject, UIViewControllerTransitioningDelegate {
     public typealias T = PresentConfig
-    public var config:T?
+    public var config: T?
     
-    unowned let base:UIViewController
+    unowned let base: UIViewController
     var transition: UIViewControllerAnimatedTransitioning?
     public init(_ base: UIViewController) {
         self.base = base
         super.init()
-        base.modalPresentationStyle = .custom
         base.transitioningDelegate = self
+        base.modalPresentationStyle = .custom
     }
     
     public func dialog<T: DialogConfig>(setting: (_ config: T)->Void ) {
@@ -29,6 +29,7 @@ public class MMPresentAnimator: NSObject , UIViewControllerTransitioningDelegate
     public func menu<T: MenuConfig >(setting: (_ config: T)->Void ) {
         self.config = MenuConfig()
         setting(self.config! as! T)
+        base.modalPresentationStyle = (self.config! as! T).modelPresentationStyle
     }
     
     public func pass<T: PassViewPresentConfig>(setting: (_ config: T)->Void) {
@@ -63,7 +64,6 @@ public class MMPresentAnimator: NSObject , UIViewControllerTransitioningDelegate
     }
     
     fileprivate func transition(config:T? ,isPresent:Bool ,source: UIViewController?) -> UIViewControllerAnimatedTransitioning? {
-        
         if let c = config {
             switch c {
             case let c as DialogConfig:
@@ -90,7 +90,6 @@ public class MMPresentAnimator: NSObject , UIViewControllerTransitioningDelegate
                 return MenuPresentationController(presentedViewController: presented, presenting: presenting, config: c)
             case let c as PassViewPresentConfig:
                 return PassViewPresentatinController(presentedViewController: presented, presenting: presenting, config: c)
-
             default: break
             }
         }

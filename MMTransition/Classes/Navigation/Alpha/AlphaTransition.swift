@@ -14,9 +14,8 @@ class AlphaTransition: BaseNavTransition , UIViewControllerAnimatedTransitioning
     }
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
         let container = transitionContext.containerView
-        let to   = transitionContext.viewController(forKey: .to)
+        let to = transitionContext.viewController(forKey: .to)
         
         to?.view.alpha = 0.0
         container.addSubview(to!.view)
@@ -28,7 +27,6 @@ class AlphaTransition: BaseNavTransition , UIViewControllerAnimatedTransitioning
             }, completion: { (finish) in
                 transitionContext.completeTransition(true)
             })
-            
         case .pop:
             to?.view.alpha = 1.0
             let from   = transitionContext.view(forKey: .from)
@@ -39,7 +37,6 @@ class AlphaTransition: BaseNavTransition , UIViewControllerAnimatedTransitioning
                 from?.removeFromSuperview()
                 transitionContext.completeTransition(true)
             })
-
         default:
             break
         }

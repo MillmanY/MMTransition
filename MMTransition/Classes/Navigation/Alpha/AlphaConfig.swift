@@ -9,6 +9,7 @@
 import UIKit
 
 public class AlphaConfig: NSObject , NavConfig {
+    public var dismissTapMask: Bool = false
     public var isShowMask: Bool = true
     public var damping: CGFloat = 0.0
     public var animationOption:UIViewAnimationOptions = .curveLinear

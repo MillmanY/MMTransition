@@ -15,12 +15,14 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView
+        
+        container.frame = UIScreen.main.bounds
         if self.isPresent {
             let toVC = transitionContext.viewController(forKey: .to)!
             guard let pass = (self.source as? PassViewFromProtocol)?.passView else {
                 print("Need Called setView")
                 return
-            }            
+            }
             guard let passContainer = (toVC as? PassViewToProtocol)?.containerView else {
                 print("Need implement PassViewPresentedProtocol")
                 return
@@ -30,26 +32,28 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
                 c.passOriginalSuper = pass.superview
                 pass.superview?.isHidden = true
             }
+            pass.translatesAutoresizingMaskIntoConstraints = true
+            
             let convertRect:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
-            let finalFrame = transitionContext.finalFrame(for: toVC)
+            let finalFrame = container.frame
+            //                transitionContext.finalFrame(for: toVC)
             let originalColor = toVC.view.backgroundColor
             toVC.view.backgroundColor = UIColor.clear
             toVC.view.frame = finalFrame
-//            passContainer.addSubview(pass)
             container.addSubview(toVC.view)
             toVC.view.addSubview(pass)
             toVC.view.layoutIfNeeded()
             pass.frame = convertRect
             (toVC as? PassViewToProtocol)?.transitionWillStart(passView: pass)
-            self.animate(animations: {
+            UIView.animate(withDuration: self.config.duration, animations: {
                 pass.frame = passContainer.frame
             }, completion: { (finish) in
+                pass.translatesAutoresizingMaskIntoConstraints = false
                 passContainer.addSubview(pass)
                 toVC.view.backgroundColor = originalColor
                 (toVC as? PassViewToProtocol)?.transitionCompleted(passView: pass)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
-            
         } else {
             
             let from = transitionContext.viewController(forKey: .from)
@@ -65,19 +69,6 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
                 print("Need Implement PassViewPresentingProtocol")
                 return
             }
-//            let convertRect:CGRect = superV.convert(superV.frame, to: nil)
-//            pass.frame = convertRect
-//            container.addSubview(pass)
-//            container.layoutIfNeeded()
-//            from?.view.backgroundColor = UIColor.clear
-//            self.animate(animations: {
-//            }, completion: { (finish) in
-//                config.passOriginalSuper?.addSubview(pass)
-//                superV.isHidden = false
-//                source.completed(passView: pass, superV: superV)
-//                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-//            })
-            
             
             let superV = source.backReplaceSuperView?(original: config.passOriginalSuper) ?? config.passOriginalSuper
             let original:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
@@ -87,12 +78,14 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
             if superV != nil {
                 container.addSubview(pass)
             }
+            pass.translatesAutoresizingMaskIntoConstraints = true
             container.layoutIfNeeded()
             pass.frame = original
             UIView.animate(withDuration: self.config.duration, animations: {
                 from?.view.alpha = 0.0
                 pass.frame = convertRect
             }, completion: { (finish) in
+                pass.translatesAutoresizingMaskIntoConstraints = false
                 superV?.addSubview(pass)
                 source.completed(passView: pass, superV: superV)
                 superV?.isHidden = false
@@ -100,7 +93,7 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 
             })
-
+            
         }
     }
 }
