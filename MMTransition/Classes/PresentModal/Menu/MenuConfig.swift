@@ -18,6 +18,7 @@ public enum MenuType {
     case bottomHeightFromViewRate(rate: CGFloat)
     
     case topFullScreen(margin: CGFloat)
+    case top(h: CGFloat, margin: CGFloat)
     case leftFullScreen
     case rightFullScreen
 }

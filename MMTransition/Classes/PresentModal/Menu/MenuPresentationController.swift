@@ -96,8 +96,10 @@ public class MenuPresentationController: BasePresentationController {
                 return CGRect(x: isHidden ? -width : 0, y: 0, width: width, height: height)
             case .rightFullScreen:
                 return CGRect(x: isHidden ? width : 0, y: 0, width: width, height: height)
-            case .topFullScreen:
-                return CGRect(x: 0, y: 0, width: width, height: height)
+            case .topFullScreen(let margin):
+                return CGRect(x: 0, y: 0, width: width, height: height-margin)
+            case .top(let h, _):
+                return CGRect.init(x: 0, y: 0, width: width, height: h)
             }
         } else if let f = self.presentedView?.frame {
             return f
@@ -162,7 +164,7 @@ public class MenuPresentationController: BasePresentationController {
         var percent:CGFloat = 0.001
         if let view = presentedViewController.view {
             switch config.menuType {
-            case .topFullScreen:
+            case .topFullScreen, .top(_,_):
                 percent =  (offset.y - firstOffset.y) / (view.frame.height + 1)
             case .bottomHeight(_) , .bottomHeightFromViewRate(_):
                 percent =  (offset.y - firstOffset.y) / (view.frame.height + 1)
@@ -170,6 +172,7 @@ public class MenuPresentationController: BasePresentationController {
                 percent = (offset.x - firstOffset.x) / (view.frame.width + 1)
             case .leftWidth(_) , .leftWidthFromViewRate(_) , .leftFullScreen:
                 percent = (firstOffset.x - offset.x) / (view.frame.width + 1)
+            
             }
         }
         if percent <= 0 {

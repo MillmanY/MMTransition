@@ -40,6 +40,9 @@ class MenuTransition: BasePresentTransition, UIViewControllerAnimatedTransitioni
             self.slide(context: transitionContext, width: width, params: -1)
         case .topFullScreen(let margin):
             self.top(context: transitionContext, height: height, params: 1, margin: margin)
+        case .top(let h, let margin):
+            self.top(context: transitionContext, height: h, params: 1, margin: margin)
+
         }
     }
     
