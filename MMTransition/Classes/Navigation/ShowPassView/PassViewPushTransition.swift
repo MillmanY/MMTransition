@@ -21,96 +21,89 @@ public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimated
         
         switch self.operation {
         case .push:
+            toVC.view.layoutIfNeeded()
+            
             guard let from = transitionContext.viewController(forKey: .from),
-                  let pass = self.findFromVCWithProtocol(vc: from)?.passView else {
-                print("Need Called setView")
+                let fromProtocol = from.fromProtocolVC else {
+                    print("From protocol not found")
+                    transitionContext.completeTransition(true)
+                    return
+            }
+            
+            guard let toProtocol = toVC.toProtocolVC else {
+                print("To Protocol not found")
+                transitionContext.completeTransition(true)
                 return
             }
-            guard let passContainer = (transitionContext.viewController(forKey: .to) as? PassViewToProtocol)?.containerView else {
-                print("Need Called setView")
-                return
-            }
-
+            
+            let passView = fromProtocol.passView
+            let passContainer = toProtocol.containerView
+            
             if let c = self.config as? PassViewPushConfig {
-                c.pass = pass
-                c.passOriginalSuper = pass.superview
-                pass.superview?.isHidden = true
+                c.passOriginalSuper = passView.superview
+                c.pass = passView
             }
-            (toVC as? PassViewToProtocol)?.transitionWillStart(passView: pass)
-            pass.translatesAutoresizingMaskIntoConstraints = true
-            let convertRect:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
+            fromProtocol.transitionWillStart()
+            let convertRect:CGRect = passView.superview?.convert(passView.superview!.frame, to: nil) ?? .zero
             let finalFrame = transitionContext.finalFrame(for: toVC)
             let originalColor = toVC.view.backgroundColor
-           
             toVC.view.backgroundColor = UIColor.clear
             toVC.view.frame = finalFrame
-            container.addSubview(pass)
-            container.layoutIfNeeded()
-            pass.frame = convertRect
+            container.addSubview(passView)
+            passView.frame = convertRect
             UIView.animate(withDuration: self.config.duration, animations: {
-                pass.frame = passContainer.frame
-
+                passView.frame = passContainer.frame
             }, completion: { (finish) in
-                pass.frame = passContainer.frame
-                passContainer.addSubview(pass)
+                passView.translatesAutoresizingMaskIntoConstraints = false
                 toVC.view.backgroundColor = originalColor
-                pass.translatesAutoresizingMaskIntoConstraints = false
-                (toVC as? PassViewToProtocol)?.transitionCompleted(passView: pass)
+                passContainer.addSubview(passView)
+                toProtocol.transitionCompleted(view: passView)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
         case .pop:
             let from = transitionContext.viewController(forKey: .from)
+            
             guard let config = self.config as? PassViewPushConfig else {
+                transitionContext.completeTransition(true)
                 return
             }
             
             guard let pass = config.pass else {
+                transitionContext.completeTransition(true)
                 return
             }
             
-            
             guard let to = transitionContext.viewController(forKey: .to),
-                  let source =  self.findFromVCWithProtocol(vc: to)  else {
+                let source =  to.fromProtocolVC  else {
+                    transitionContext.completeTransition(true)
                     print("Need Implement PassViewFromProtocol")
                     return
             }
             
+            pass.translatesAutoresizingMaskIntoConstraints = true
             let superV = source.backReplaceSuperView?(original: config.passOriginalSuper) ?? config.passOriginalSuper
-            let original:CGRect = pass.superview?.convert(pass.superview!.frame, to: nil) ?? .zero
-
+            let original:CGRect = pass.convert(pass.frame, to: nil)
+            
             let convertRect:CGRect = (superV != nil ) ? superV!.convert(superV!.frame, to: nil) : .zero
             
             if superV != nil {
+                pass.removeFromSuperview()
                 container.addSubview(pass)
             }
-            pass.translatesAutoresizingMaskIntoConstraints = true
-
-            container.layoutIfNeeded()
             pass.frame = original
             UIView.animate(withDuration: self.config.duration, animations: {
                 from?.view.alpha = 0.0
                 pass.frame = convertRect
             }, completion: { (finish) in
-                superV?.addSubview(pass)
                 pass.translatesAutoresizingMaskIntoConstraints = false
-                source.completed(passView: pass, superV: superV)
                 superV?.isHidden = false
-                from?.view.removeFromSuperview()
+                superV?.addSubview(pass)
+                source.completed(passView: pass, superV: superV)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                
+                source.transitionCompleted()
             })
         default:
             break
         }
-    }
-
-    
-    func findFromVCWithProtocol(vc: UIViewController) -> (PassViewFromProtocol & UIViewController)? {
-        if let pass = vc as? PassViewFromProtocol & UIViewController , pass.willPassView?() ?? true {
-            return pass
-        } else if let first = vc.childViewControllers.first(where: { self.findFromVCWithProtocol(vc: $0) != nil }) as? PassViewFromProtocol & UIViewController {
-            return first
-        }
-        return nil
     }
 }

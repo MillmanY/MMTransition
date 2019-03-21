@@ -62,7 +62,15 @@ extension ViewController: UITableViewDelegate {
     }
 }
 // Pass View
-extension ViewController: PassViewFromProtocol {
+extension ViewController: MMTransitionFromProtocol {
+    func transitionWillStart() {
+        
+    }
+    
+    func transitionCompleted() {
+        
+    }
+    
     
     func passView(row: Int) {
         selectIdx = row

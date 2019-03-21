@@ -21,7 +21,7 @@ public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
         self.base = base
         super.init()
     }
-    
+
     public func alpha<T: AlphaConfig>(setting: (_ config: T)->Void ) {
         config = AlphaConfig()
         base.delegate = _proxy
@@ -53,11 +53,9 @@ public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
     }
     
     public func navigationController(_ navigationController: UINavigationController,
-                                     animationControllerFor operation: UINavigationControllerOperation,
+                                     animationControllerFor operation: UINavigationController.Operation,
                                      from fromVC: UIViewController,
                                      to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-
         
         if let proxy = self.base.delegate as? NavigationDelegateProxy,
             let childTransition = proxy.forward?.navigationController?(navigationController, animationControllerFor: operation, from: fromVC, to: toVC) {
@@ -66,6 +64,7 @@ public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
             return nil
         }
 
+   
         if let c = config , transition == nil {
             switch c {
             case let c as AlphaConfig:
@@ -88,3 +87,4 @@ public class MMPushAnimator: NSObject , UINavigationControllerDelegate {
         return nil
     }
 }
+

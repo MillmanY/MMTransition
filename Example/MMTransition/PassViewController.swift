@@ -30,8 +30,7 @@ class PassViewController: UIViewController {
     }
 }
 
-
-extension PassViewController: PassViewToProtocol {
+extension PassViewController: MMTransitionToProtocol {
     var containerView: UIView {
         get {
             return containrView
@@ -41,14 +40,14 @@ extension PassViewController: PassViewToProtocol {
         
     }
     
-    func transitionCompleted(passView: UIView) {
+    func transitionCompleted(view: UIView) {
         
-        guard let imageV = passView as? UIImageView else {
+        guard let imageV = view as? UIImageView else {
             return
         }
         imageView = imageV
-        containrView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": passView]))
-        containrView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": passView]))
+        containrView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": view]))
+        containrView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": view]))
 
     }
 }

@@ -16,7 +16,7 @@ public class PassViewPushConfig: NSObject ,NavConfig {
     public var isShowMask: Bool = true
     public var presentingScale:CGFloat = 1.0
     public var damping: CGFloat = 0.0
-    public var animationOption:UIViewAnimationOptions = .curveLinear
+    public var animationOption:UIView.AnimationOptions = .curveLinear
     public var springVelocity: CGFloat = 0.0
     public var duration:TimeInterval = 0.3
 }

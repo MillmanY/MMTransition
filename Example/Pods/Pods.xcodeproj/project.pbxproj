@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19F7BD4F59C50643D5AD3940184BECC6 /* Pods-MMTransition_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4BEA54F93BC5B5BF008A0924CD1279 /* Pods-MMTransition_Example-dummy.m */; };
+		27090B252243BA2F00185065 /* MMTransition+Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27090B242243BA2F00185065 /* MMTransition+Check.swift */; };
 		365735533EAD1FDB0955A1FA68BDED2A /* Pods-MMTransition_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1632B423573D7B319897C11EF8A48E52 /* Pods-MMTransition_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ABAF1ADDF22223F56829278CD036FFE /* MMTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42164C1F3EB9D3919BFE49C12F42F85B /* MMTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F5DD07234E4F3CB937B76814E9F7819 /* Pods-MMTransition_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FFC07EBCFECD4D5B15A5CD5B422D52 /* Pods-MMTransition_Tests-dummy.m */; };
@@ -57,6 +58,7 @@
 		1632B423573D7B319897C11EF8A48E52 /* Pods-MMTransition_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MMTransition_Example-umbrella.h"; sourceTree = "<group>"; };
 		1DE8209A890D1D459A2F426112B6B412 /* Pods-MMTransition_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MMTransition_Example-resources.sh"; sourceTree = "<group>"; };
 		21FE9DAE128752D531F2C1FB41BE5917 /* Pods-MMTransition_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MMTransition_Tests.modulemap"; sourceTree = "<group>"; };
+		27090B242243BA2F00185065 /* MMTransition+Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMTransition+Check.swift"; sourceTree = "<group>"; };
 		2E0649C8DD672237F2A8E12A547C5176 /* MMTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C5C1655595ADCC7574B1B97AEDD3A2 /* MMTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMTransition-dummy.m"; sourceTree = "<group>"; };
 		416AC08C7DD7DF7581FEEF2F695881C4 /* MMTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MMTransition.modulemap; sourceTree = "<group>"; };
@@ -67,7 +69,6 @@
 		5E4786752058D9A300EC2EE3 /* UINavigationController+Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Proxy.swift"; sourceTree = "<group>"; };
 		5E4786782058DAED00EC2EE3 /* MMTransition+DispatchQueue+Once.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMTransition+DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		5E47867A2058DB8900EC2EE3 /* MMtransition+NSObject+ReplaceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMtransition+NSObject+ReplaceSelector.swift"; sourceTree = "<group>"; };
-		5EEF921C1ED7FD97002D8FDF /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5EEF921D1ED7FD97002D8FDF /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
 		5EEF921E1ED7FD97002D8FDF /* MMTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTransition.swift; sourceTree = "<group>"; };
 		5EEF92211ED7FD97002D8FDF /* AlphaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaConfig.swift; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 				5E4786752058D9A300EC2EE3 /* UINavigationController+Proxy.swift */,
 				5E4786782058DAED00EC2EE3 /* MMTransition+DispatchQueue+Once.swift */,
 				5E47867A2058DB8900EC2EE3 /* MMtransition+NSObject+ReplaceSelector.swift */,
+				27090B242243BA2F00185065 /* MMTransition+Check.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -175,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				5E4786772058DAD700EC2EE3 /* Extension */,
-				5EEF921C1ED7FD97002D8FDF /* .gitkeep */,
 				5EEF921D1ED7FD97002D8FDF /* BaseTransition.swift */,
 				5EEF921E1ED7FD97002D8FDF /* MMTransition.swift */,
 				5EEF921F1ED7FD97002D8FDF /* Navigation */,
@@ -501,6 +502,7 @@
 				5EEF92411ED7FD97002D8FDF /* DialogPresentationController.swift in Sources */,
 				5E47867B2058DB8900EC2EE3 /* MMtransition+NSObject+ReplaceSelector.swift in Sources */,
 				5EEF92481ED7FD97002D8FDF /* PassViewPresentConfig.swift in Sources */,
+				27090B252243BA2F00185065 /* MMTransition+Check.swift in Sources */,
 				5EEF923C1ED7FD97002D8FDF /* MMPushAnimator.swift in Sources */,
 				5EEF924B1ED7FD97002D8FDF /* UIView+Shape.swift in Sources */,
 				5EEF924A1ED7FD97002D8FDF /* TransitionDefine.swift in Sources */,
@@ -584,7 +586,7 @@
 				PRODUCT_NAME = MMTransition;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -772,7 +774,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

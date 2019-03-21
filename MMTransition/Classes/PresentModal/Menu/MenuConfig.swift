@@ -24,13 +24,15 @@ public enum MenuType {
 }
 
 public class MenuConfig: NSObject, PresentConfig {
+    public var source: UIViewController?
+    
     public var shouldApperancePresentingController: Bool = true
     public var isContainerFullScreen = true
     public var isShowMask: Bool = true
     public var dismissTapMask: Bool = false
     public var presentingScale: CGFloat = 1.0
     public var damping: CGFloat = 0.0
-    public var animationOption: UIViewAnimationOptions = .curveLinear
+    public var animationOption: UIView.AnimationOptions = .curveLinear
     public var springVelocity: CGFloat = 0.0
     public var duration: TimeInterval = 0.3
 

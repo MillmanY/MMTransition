@@ -64,16 +64,15 @@ public class MMPresentAnimator: NSObject, UIViewControllerTransitioningDelegate 
     }
     
     fileprivate func transition(config:T? ,isPresent:Bool ,source: UIViewController?) -> UIViewControllerAnimatedTransitioning? {
-        if let c = config {
+        if var c = config {
+            c.source = source
             switch c {
             case let c as DialogConfig:
                 return DialogTransition(config: c, isPresent: isPresent)
             case let c as MenuConfig:
                 return MenuTransition(config: c, isPresent: isPresent)
             case let c as PassViewPresentConfig:
-                let pass = PassViewPresentTransition(config: c, isPresent: isPresent)
-                pass.source = source
-                return pass
+                return PassViewPresentTransition(config: c, isPresent: isPresent)
             default: break
             }
         }

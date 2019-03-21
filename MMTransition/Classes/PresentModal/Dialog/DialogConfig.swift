@@ -27,17 +27,19 @@ public enum DialogAnimateType {
 }
 
 public class DialogConfig: NSObject , PresentConfig {
+    public var source: UIViewController?
+    
     public var shouldApperancePresentingController: Bool = true
     public var isShowMask: Bool = true
     public var dismissTapMask: Bool = false
     public var presentingScale:CGFloat = 1.0
     public var damping: CGFloat = 0.0
-    public var animationOption:UIViewAnimationOptions = .curveLinear
+    public var animationOption:UIView.AnimationOptions = .curveLinear
     public var springVelocity: CGFloat = 0.0
     public var duration:TimeInterval = 0.3
 
     public var dialogType:DialogType = DialogType.size(s: CGSize(width: 100, height: 100))
     public var animateType:DialogAnimateType = .alpha(from: 0, to: 1)
     public var presentView:(opacity: CGFloat ,radius: CGFloat) = (0.0 , 0.0)
-    
 }
+

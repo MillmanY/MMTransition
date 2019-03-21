@@ -13,11 +13,12 @@ public protocol Config {
     var isShowMask: Bool {get set}
     var damping: CGFloat { get set }
     var springVelocity: CGFloat { get set }
-    var animationOption: UIViewAnimationOptions { get set }
+    var animationOption: UIView.AnimationOptions { get set }
     var duration: TimeInterval { get set }
 }
 
 public protocol PresentConfig: Config {
+    var source: UIViewController? { set get }
     var shouldApperancePresentingController: Bool { get set }
     var presentingScale: CGFloat  { get set }
     var presentView: (opacity: CGFloat,radius: CGFloat) {get set}
@@ -55,16 +56,20 @@ public struct MMTransition<T> {
 }
 
 extension NSObject: TransitionCompatible { }
-@objc public protocol PassViewFromProtocol {
-    @objc optional func willPassView() -> Bool
+
+@objc public protocol MMTransitionFromProtocol {
     var passView: UIView { get }
+    @objc optional func willPassView() -> Bool
+    func transitionWillStart()
+    func transitionCompleted()
     @objc optional func backReplaceSuperView(original: UIView?) -> UIView?
+    @objc optional func presentedView(isShrinkVideo: Bool)
+    @objc optional func dismissViewFromGesture()
     func completed(passView: UIView,superV: UIView?)
+
 }
 
-public protocol PassViewToProtocol {
+@objc public protocol MMTransitionToProtocol {
     var containerView: UIView { get }
-    func transitionWillStart(passView: UIView)
-    func transitionCompleted(passView: UIView)
-    //    func transitionWillStart()
+    func transitionCompleted(view: UIView)
 }
