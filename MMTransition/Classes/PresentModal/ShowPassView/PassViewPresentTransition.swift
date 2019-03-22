@@ -39,7 +39,7 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
                 c.pass = passView
             }
             fromProtocol.transitionWillStart()
-            let convertFrom: CGRect = passView.superview?.convert(passView.superview!.frame, to: nil) ?? .zero
+            let convertFrom: CGRect = passView.superview?.convert(passView.frame, to: nil) ?? .zero
             let convertTo = passContainer.superview?.convert(passContainer.frame, to: container) ?? .zero
             let finalFrame = transitionContext.finalFrame(for: toVC)
             let originalColor = toVC.view.backgroundColor
@@ -95,9 +95,9 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
             }, completion: { (finish) in
                 pass.translatesAutoresizingMaskIntoConstraints = false
                 superV.isHidden = false
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 superV.addSubview(pass)
                 source.completed(passView: pass, superV: superV)
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 source.transitionCompleted()
             })
         }
