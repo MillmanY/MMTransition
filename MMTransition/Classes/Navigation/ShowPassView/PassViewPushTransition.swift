@@ -82,25 +82,27 @@ public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimated
                     print("Need Implement PassViewFromProtocol")
                     return
             }
-            
-            pass.translatesAutoresizingMaskIntoConstraints = true
-            let superV = source.backReplaceSuperView?(original: config.passOriginalSuper) ?? config.passOriginalSuper
-            let original:CGRect = pass.convert(pass.frame, to: nil)
-            
-            let convertRect:CGRect = (superV != nil ) ? superV!.convert(superV!.frame, to: nil) : .zero
-            
-            if superV != nil {
-                pass.removeFromSuperview()
-                container.addSubview(pass)
+
+            guard let superV = source.backReplaceSuperView?(original: config.passOriginalSuper) ?? config.passOriginalSuper else {
+                pass.translatesAutoresizingMaskIntoConstraints = false
+                source.completed(passView: pass, superV: nil)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                source.transitionCompleted()
+                return
             }
+            pass.translatesAutoresizingMaskIntoConstraints = true
+            let original: CGRect = pass.convert(pass.frame, to: nil)
+            let convertRect: CGRect = superV.superview?.convert(superV.frame, to: to.view) ?? .zero
+            pass.removeFromSuperview()
+            container.addSubview(pass)
             pass.frame = original
             UIView.animate(withDuration: self.config.duration, animations: {
                 from?.view.alpha = 0.0
                 pass.frame = convertRect
             }, completion: { (finish) in
                 pass.translatesAutoresizingMaskIntoConstraints = false
-                superV?.isHidden = false
-                superV?.addSubview(pass)
+                superV.isHidden = false
+                superV.addSubview(pass)
                 source.completed(passView: pass, superV: superV)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 source.transitionCompleted()
