@@ -218,10 +218,10 @@
 		5EEF92271ED7FD97002D8FDF /* PresentModal */ = {
 			isa = PBXGroup;
 			children = (
+				5EEF92311ED7FD97002D8FDF /* MMPresentAnimator.swift */,
 				5EEF92281ED7FD97002D8FDF /* BasePresentationController.swift */,
 				5EEF92291ED7FD97002D8FDF /* Dialog */,
 				5EEF922D1ED7FD97002D8FDF /* Menu */,
-				5EEF92311ED7FD97002D8FDF /* MMPresentAnimator.swift */,
 				5EEF92321ED7FD97002D8FDF /* ShowPassView */,
 			);
 			path = PresentModal;

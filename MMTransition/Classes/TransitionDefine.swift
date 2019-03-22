@@ -63,10 +63,7 @@ extension NSObject: TransitionCompatible { }
     func transitionWillStart()
     func transitionCompleted()
     @objc optional func backReplaceSuperView(original: UIView?) -> UIView?
-    @objc optional func presentedView(isShrinkVideo: Bool)
-    @objc optional func dismissViewFromGesture()
     func completed(passView: UIView,superV: UIView?)
-
 }
 
 @objc public protocol MMTransitionToProtocol {

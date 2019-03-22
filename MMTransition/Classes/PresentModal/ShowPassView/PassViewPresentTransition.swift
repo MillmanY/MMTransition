@@ -45,6 +45,7 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
             toVC.view.backgroundColor = UIColor.clear
             toVC.view.frame = finalFrame
             container.addSubview(passView)
+            container.layoutIfNeeded()
             passView.frame = convertRect
             UIView.animate(withDuration: self.config.duration, animations: {
                 passView.frame = passContainer.frame
