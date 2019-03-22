@@ -44,16 +44,18 @@ public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimated
                 c.pass = passView
             }
             fromProtocol.transitionWillStart()
-            let convertRect:CGRect = passView.superview?.convert(passView.superview!.frame, to: nil) ?? .zero
+            let convertFrom: CGRect = passView.superview?.convert(passView.superview!.frame, to: nil) ?? .zero
+            let convertTo = passContainer.superview?.convert(passContainer.frame, to: container) ?? .zero
             let finalFrame = transitionContext.finalFrame(for: toVC)
             let originalColor = toVC.view.backgroundColor
             toVC.view.backgroundColor = UIColor.clear
             toVC.view.frame = finalFrame
             container.addSubview(passView)
             container.layoutIfNeeded()
-            passView.frame = convertRect
+            passView.frame = convertFrom
+            
             UIView.animate(withDuration: self.config.duration, animations: {
-                passView.frame = passContainer.frame
+                passView.frame = convertTo
             }, completion: { (finish) in
                 passView.translatesAutoresizingMaskIntoConstraints = false
                 toVC.view.backgroundColor = originalColor
