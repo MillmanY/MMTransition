@@ -85,7 +85,7 @@ class PassViewPresentTransition: BasePresentTransition, UIViewControllerAnimated
             }
             pass.translatesAutoresizingMaskIntoConstraints = true
             let original: CGRect = pass.convert(pass.frame, to: nil)
-            let convertRect: CGRect = superV.superview?.convert(superV.frame, to: source.view) ?? .zero
+            let convertRect: CGRect = superV.superview?.convert(superV.frame, to: container) ?? .zero
             pass.removeFromSuperview()
             container.addSubview(pass)
             pass.frame = original
