@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05C8D5F0E8C7A5B3B086DC01 /* Pods_MMTransition_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF3F986306D8A276E515567 /* Pods_MMTransition_Example.framework */; };
+		2784594B224B584500E572B6 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784594A224B584500E572B6 /* CustomImageView.swift */; };
 		5E51C1C91E88C40800002516 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E51C1C81E88C40800002516 /* SecondViewController.swift */; };
 		5E51C1E91E89F67200002516 /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E51C1E81E89F67200002516 /* DialogViewController.swift */; };
 		5E8D937E1ED3167600BF5FDB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D937D1ED3167600BF5FDB /* CustomCell.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		01C8C7DA42DD81488449DE44 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0BF64EA6BD476A028D4A4F77 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2784594A224B584500E572B6 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		3AC091D3CBBC6EFE38CA9F00 /* Pods_MMTransition_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMTransition_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF3F986306D8A276E515567 /* Pods_MMTransition_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMTransition_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E51C1C81E88C40800002516 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27845949224B583400E572B6 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				2784594A224B584500E572B6 /* CustomImageView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		2A78196EF2CD8ABB8DC778D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		607FACD21AFB9204008FA782 /* Example for MMTransition */ = {
 			isa = PBXGroup;
 			children = (
+				27845949224B583400E572B6 /* CustomView */,
 				5E8D937C1ED3165B00BF5FDB /* CustomCell */,
 				5E51C1E71E89F63800002516 /* Dialog */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -394,6 +405,7 @@
 				5E51C1E91E89F67200002516 /* DialogViewController.swift in Sources */,
 				5E51C1C91E88C40800002516 /* SecondViewController.swift in Sources */,
 				5E8D937E1ED3167600BF5FDB /* CustomCell.swift in Sources */,
+				2784594B224B584500E572B6 /* CustomImageView.swift in Sources */,
 				5E8D93801ED3198F00BF5FDB /* PassViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

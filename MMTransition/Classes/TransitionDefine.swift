@@ -57,16 +57,47 @@ public struct MMTransition<T> {
 
 extension NSObject: TransitionCompatible { }
 
-@objc public protocol MMTransitionFromProtocol {
-    var passView: UIView { get }
-    @objc optional func willPassView() -> Bool
-    func transitionWillStart()
-    func transitionCompleted()
+
+@objc public protocol MMTransitionFromBaseProtocol {
     @objc optional func backReplaceSuperView(original: UIView?) -> UIView?
-    func completed(passView: UIView,superV: UIView?)
+    @objc optional func willPassView() -> Bool
 }
 
-@objc public protocol MMTransitionToProtocol {
-    var containerView: UIView { get }
-    func transitionCompleted(view: UIView)
+
+
+public protocol MMTransitionFromProtocol: MMTransitionFromBaseProtocol {
+    var passView: (UIView & PassViewProtocol) { get }
+    func transitionFrom(status: TransitionFromStatus)
 }
+
+public protocol MMTransitionToProtocol {
+    var containerView: (UIView & ContainerViewProtocol) { get }
+    func transitionTo(status: TransitionToStatus)
+}
+
+public enum TransitionFromStatus {
+    case willLeave
+    case leave
+    case willBack
+    case back
+}
+
+public enum TransitionToStatus {
+    case willCome
+    case come
+    case setContainerWith(view: UIView)
+    case willLeave
+    case leave
+}
+
+public protocol PassViewProtocol {
+    func passWith(status: TransitionFromStatus)
+    func resetPassViewLayout()
+}
+
+public protocol ContainerViewProtocol {
+    func containerViewWith(status: TransitionToStatus)
+}
+
+
+

@@ -9,8 +9,8 @@
 import UIKit
 
 public class PassViewPushConfig: NSObject ,NavConfig {
-    weak var passOriginalSuper: UIView?
-    weak var pass: UIView?
+    weak public var passOriginalSuper: UIView?
+    weak public var pass: UIView?
     
     public var dismissTapMask: Bool = false
     public var isShowMask: Bool = true

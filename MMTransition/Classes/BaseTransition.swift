@@ -31,7 +31,7 @@ public class BasePresentTransition: NSObject {
 public class BaseNavTransition: NSObject {
     var operation:UINavigationController.Operation = .none
     var source: UIViewController?
-    internal var config:NavConfig!
+    internal var config: NavConfig!
     
     convenience init(config: NavConfig , operation: UINavigationController.Operation) {
         self.init()

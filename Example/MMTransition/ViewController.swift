@@ -63,14 +63,9 @@ extension ViewController: UITableViewDelegate {
 }
 // Pass View
 extension ViewController: MMTransitionFromProtocol {
-    func transitionWillStart() {
+    func transitionFrom(status: TransitionFromStatus) {
         
     }
-    
-    func transitionCompleted() {
-        
-    }
-    
     
     func passView(row: Int) {
         selectIdx = row
@@ -86,19 +81,14 @@ extension ViewController: MMTransitionFromProtocol {
         }
     }
     
-    var passView: UIView {
-        
+    var passView: (UIView & PassViewProtocol) {
+
         let path = IndexPath(row: selectIdx, section: 0)
         if let cell = tableView.cellForRow(at: path) as? CustomCell {
+            cell.imgView.backgroundColor = UIColor.black
             return cell.imgView
         }
-        return UIView()
-    }
-    
-    func completed(passView: UIView,superV: UIView?) {
-        
-        superV?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": passView]))
-        superV?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": passView]))
+        return UIView() as! (UIView & PassViewProtocol)
     }
 }
 

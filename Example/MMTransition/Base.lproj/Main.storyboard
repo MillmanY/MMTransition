@@ -66,8 +66,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpe-UC-3f4">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iamge1" translatesAutoresizingMaskIntoConstraints="NO" id="xG6-mR-0By">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iamge1" translatesAutoresizingMaskIntoConstraints="NO" id="xG6-mR-0By" customClass="CustomImageView" customModule="MMTransition_Example" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -133,11 +134,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-hK-YIx">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-hK-YIx" customClass="CustomImageView" customModule="MMTransition_Example" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="120" width="375" height="375"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qZL-YG-X8P">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <color key="backgroundColor" red="1" green="0.25098039220000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="qZL-YG-X8P" firstAttribute="leading" secondItem="1Uo-hK-YIx" secondAttribute="leading" id="F5a-MB-MPg"/>
+                                    <constraint firstAttribute="trailing" secondItem="qZL-YG-X8P" secondAttribute="trailing" id="PiN-2V-LLx"/>
                                     <constraint firstAttribute="width" secondItem="1Uo-hK-YIx" secondAttribute="height" multiplier="1:1" id="UKZ-gM-aHZ"/>
+                                    <constraint firstItem="qZL-YG-X8P" firstAttribute="top" secondItem="1Uo-hK-YIx" secondAttribute="top" id="h5A-zE-DQf"/>
+                                    <constraint firstAttribute="bottom" secondItem="qZL-YG-X8P" secondAttribute="bottom" id="qHJ-L8-RwI"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gV-oU-W4T">
@@ -162,7 +173,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="containrView" destination="1Uo-hK-YIx" id="eKp-Bz-aKr"/>
+                        <outlet property="imageView" destination="qZL-YG-X8P" id="45L-aJ-Kfh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqe-JD-Rr7" userLabel="First Responder" sceneMemberID="firstResponder"/>

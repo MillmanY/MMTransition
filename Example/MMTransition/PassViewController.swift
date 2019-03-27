@@ -8,9 +8,10 @@
 
 import UIKit
 import MMTransition
+
+
 class PassViewController: UIViewController {
-    @IBOutlet weak var containrView: UIView!
-    var imageView: UIImageView!
+    @IBOutlet weak var imageView: CustomImageView!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.mmT.present.pass { (_) in}
@@ -31,23 +32,14 @@ class PassViewController: UIViewController {
 }
 
 extension PassViewController: MMTransitionToProtocol {
-    var containerView: UIView {
-        get {
-            return containrView
-        }
-    }
-    func transitionWillStart(passView: UIView) {
+    func transitionTo(status: TransitionToStatus) {
         
     }
     
-    func transitionCompleted(view: UIView) {
-        
-        guard let imageV = view as? UIImageView else {
-            return
+    var containerView: (UIView & ContainerViewProtocol) {
+        get {
+            imageView.backgroundColor = UIColor.blue
+            return imageView
         }
-        imageView = imageV
-        containrView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": view]))
-        containrView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": view]))
-
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomCell: UITableViewCell {
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var imgView: CustomImageView!
     @IBOutlet weak var labTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
