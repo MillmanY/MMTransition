@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PassViewHelper: NSObject {
+public class PassViewHelper: NSObject {
     let transitionContext: UIViewControllerContextTransitioning
     var config: Config
     init(transitionContext: UIViewControllerContextTransitioning, config: Config) {
