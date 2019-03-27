@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 public class PassViewPushTransition: BaseNavTransition, UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return config.duration

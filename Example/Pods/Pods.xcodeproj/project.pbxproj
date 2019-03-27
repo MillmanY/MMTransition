@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		19F7BD4F59C50643D5AD3940184BECC6 /* Pods-MMTransition_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4BEA54F93BC5B5BF008A0924CD1279 /* Pods-MMTransition_Example-dummy.m */; };
 		27090B252243BA2F00185065 /* MMTransition+Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27090B242243BA2F00185065 /* MMTransition+Check.swift */; };
-		27845948224B477500E572B6 /* PassViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27845947224B477500E572B6 /* PassViewHelper.swift */; };
+		27845956224B818100E572B6 /* PassViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27845955224B818100E572B6 /* PassViewHelper.swift */; };
 		365735533EAD1FDB0955A1FA68BDED2A /* Pods-MMTransition_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1632B423573D7B319897C11EF8A48E52 /* Pods-MMTransition_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ABAF1ADDF22223F56829278CD036FFE /* MMTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42164C1F3EB9D3919BFE49C12F42F85B /* MMTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F5DD07234E4F3CB937B76814E9F7819 /* Pods-MMTransition_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FFC07EBCFECD4D5B15A5CD5B422D52 /* Pods-MMTransition_Tests-dummy.m */; };
@@ -60,7 +60,7 @@
 		1DE8209A890D1D459A2F426112B6B412 /* Pods-MMTransition_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MMTransition_Example-resources.sh"; sourceTree = "<group>"; };
 		21FE9DAE128752D531F2C1FB41BE5917 /* Pods-MMTransition_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MMTransition_Tests.modulemap"; sourceTree = "<group>"; };
 		27090B242243BA2F00185065 /* MMTransition+Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMTransition+Check.swift"; sourceTree = "<group>"; };
-		27845947224B477500E572B6 /* PassViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassViewHelper.swift; sourceTree = "<group>"; };
+		27845955224B818100E572B6 /* PassViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassViewHelper.swift; sourceTree = "<group>"; };
 		2E0649C8DD672237F2A8E12A547C5176 /* MMTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C5C1655595ADCC7574B1B97AEDD3A2 /* MMTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMTransition-dummy.m"; sourceTree = "<group>"; };
 		416AC08C7DD7DF7581FEEF2F695881C4 /* MMTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MMTransition.modulemap; sourceTree = "<group>"; };
@@ -140,10 +140,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27845946224B476900E572B6 /* Helper */ = {
+		27845954224B817100E572B6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				27845947224B477500E572B6 /* PassViewHelper.swift */,
+				27845955224B818100E572B6 /* PassViewHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -186,6 +186,7 @@
 		5EEF921B1ED7FD97002D8FDF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27845954224B817100E572B6 /* Helper */,
 				5E4786772058DAD700EC2EE3 /* Extension */,
 				5EEF921D1ED7FD97002D8FDF /* BaseTransition.swift */,
 				5EEF921E1ED7FD97002D8FDF /* MMTransition.swift */,
@@ -360,7 +361,6 @@
 		F9412E62A7219B292C3CEB994112F4B4 /* MMTransition */ = {
 			isa = PBXGroup;
 			children = (
-				27845946224B476900E572B6 /* Helper */,
 				5EEF921B1ED7FD97002D8FDF /* Classes */,
 			);
 			path = MMTransition;
@@ -508,7 +508,7 @@
 				5EEF92421ED7FD97002D8FDF /* DialogTransition.swift in Sources */,
 				5E4786762058D9A300EC2EE3 /* UINavigationController+Proxy.swift in Sources */,
 				5EEF92461ED7FD97002D8FDF /* MMPresentAnimator.swift in Sources */,
-				27845948224B477500E572B6 /* PassViewHelper.swift in Sources */,
+				27845956224B818100E572B6 /* PassViewHelper.swift in Sources */,
 				5EEF923F1ED7FD97002D8FDF /* BasePresentationController.swift in Sources */,
 				5EEF923E1ED7FD97002D8FDF /* PassViewPushTransition.swift in Sources */,
 				5EEF92411ED7FD97002D8FDF /* DialogPresentationController.swift in Sources */,
