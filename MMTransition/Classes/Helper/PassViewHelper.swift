@@ -28,10 +28,16 @@ public class PassViewHelper: NSObject {
         guard let toProtocol = toVC.toProtocolVC else {
             fatalError("MMTransitionToProtocol not implement")
         }
-        let (passView, passProtocol) = fromProtocol.pass
-        let (passContainer, containerProtocol) = toProtocol.container
-        let passOriginalSuper = passView.superview
         
+        
+        fromProtocol.view.layoutIfNeeded()
+        toProtocol.view.layoutIfNeeded()
+        guard let (passView, passProtocol) = fromProtocol.pass,
+             let (passContainer, containerProtocol) = toProtocol.container else {
+                transitionContext.completeTransition(!self.transitionContext.transitionWasCancelled)
+                return
+        }
+        let passOriginalSuper = passView.superview
         passProtocol.passWith(status: .willLeave)
         containerProtocol.containerViewWith(status: .willCome)
         
@@ -71,10 +77,16 @@ public class PassViewHelper: NSObject {
             let from = f.toProtocolVC else {
                 fatalError("MMTransitionToProtocol not implement")
         }
+        to.view.layoutIfNeeded()
+        f.view.layoutIfNeeded()
+
         container.addSubview(from.view)
         from.view.frame = container.frame
-        let (pass, passProtocol) = from.container
-        let (original, originalProtocol) = source.pass
+        guard let (pass, passProtocol) = from.container,
+              let (original, originalProtocol) = source.pass else {
+            transitionContext.completeTransition(!self.transitionContext.transitionWasCancelled)
+            return
+        }
 
         pass.translatesAutoresizingMaskIntoConstraints = true
         originalProtocol.passWith(status: .willBack)

@@ -31,8 +31,8 @@ class PassViewController: UIViewController {
     }
 }
 
-extension PassViewController: MMTransitionToProtocol {
-    var container: (view: UIView, delegate: ContainerViewProtocol) {
+extension PassViewController: MMTransitionToProtocol {    
+    var container: (view: UIView, delegate: ContainerViewProtocol)? {
         return (imageView, imageView)
     }
 }

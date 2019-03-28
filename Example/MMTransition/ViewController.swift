@@ -63,13 +63,13 @@ extension ViewController: UITableViewDelegate {
 }
 // Pass View
 extension ViewController: MMTransitionFromProtocol {    
-    var pass: (view: UIView, delegate: PassViewProtocol) {
+    var pass: (view: UIView, delegate: PassViewProtocol)? {
         let path = IndexPath(row: selectIdx, section: 0)
         if let cell = tableView.cellForRow(at: path) as? CustomCell {
             cell.imgView.backgroundColor = UIColor.black
             return (cell.imgView, cell.imgView)
         }
-        return (UIView() , UIView() as! PassViewProtocol)
+        return nil
     }
     
     func passView(row: Int) {
