@@ -28,30 +28,27 @@ public class PassViewHelper: NSObject {
         guard let toProtocol = toVC.toProtocolVC else {
             fatalError("MMTransitionToProtocol not implement")
         }
-        let passView = fromProtocol.pass.view
-        let passProtocol = fromProtocol.pass.delegate
-        let passContainer = toProtocol.container.view
-        let containerProtocol = toProtocol.container.delegate
-
+        let (passView, passProtocol) = fromProtocol.pass
+        let (passContainer, containerProtocol) = toProtocol.container
         let passOriginalSuper = passView.superview
+        
         passProtocol.passWith(status: .willLeave)
-//        fromProtocol.transitionFrom(status: .willLeave)
         containerProtocol.containerViewWith(status: .willCome)
-//        toProtocol.transitionTo(status: .willCome)
+        
         let convertFrom: CGRect = passView.superview?.convert(passView.frame, to: nil) ?? .zero
         let convertTo = passContainer.superview?.convert(passContainer.frame, to: container) ?? .zero
         let finalFrame = transitionContext.finalFrame(for: toVC)
+        
         toVC.view.frame = finalFrame
         container.addSubview(passView)
         container.layoutIfNeeded()
         passView.frame = convertFrom
+        
         UIView.animate(withDuration: self.config.duration, animations: {
             passView.frame = convertTo
             toVC.view.alpha = 1.0
         }, completion: {(finish) in
-//            fromProtocol.transitionFrom(status: .leave)
             passProtocol.passWith(status: .leave)
-//            toProtocol.transitionTo(status: .come)
             containerProtocol.containerViewWith(status: .come)
             containerProtocol.containerViewWith(status: .setContainerWith(view: passView))
             passOriginalSuper?.addSubview(passView)
@@ -76,29 +73,25 @@ public class PassViewHelper: NSObject {
         }
         container.addSubview(from.view)
         from.view.frame = container.frame
-        let pass = from.container.view
-        let passProtocol = from.container.delegate
+        let (pass, passProtocol) = from.container
+        let (original, originalProtocol) = source.pass
 
         pass.translatesAutoresizingMaskIntoConstraints = true
-        let original = source.pass.view
-        let originalProtocol = source.pass.delegate
-
-//        source.transitionFrom(status: .willBack)
-//        from.transitionTo(status: .willLeave)
         originalProtocol.passWith(status: .willBack)
         passProtocol.containerViewWith(status: .willLeave)
+        
         let passFrame: CGRect = pass.convert(pass.frame, to: nil)
         let convertRect: CGRect = original.superview?.convert(original.frame, to: container) ?? .zero
+        
         pass.removeFromSuperview()
         container.addSubview(pass)
         pass.frame = passFrame
+        
         UIView.animate(withDuration: self.config.duration, animations: {
             from.view.alpha = 0.0
             pass.frame = convertRect
         }, completion: { (finish) in
             from.view.removeFromSuperview()
-//            source.transitionFrom(status: .back)
-//            from.transitionTo(status: .leave)
             originalProtocol.passWith(status: .back)
             passProtocol.containerViewWith(status: .leave)
             pass.removeFromSuperview()
