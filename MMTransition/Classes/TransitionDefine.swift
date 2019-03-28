@@ -66,13 +66,13 @@ extension NSObject: TransitionCompatible { }
 
 
 public protocol MMTransitionFromProtocol: MMTransitionFromBaseProtocol {
-    var passView: (UIView & PassViewProtocol) { get }
-    func transitionFrom(status: TransitionFromStatus)
+    var pass: (view: UIView, delegate: PassViewProtocol) { get }
+//    func transitionFrom(status: TransitionFromStatus)
 }
 
 public protocol MMTransitionToProtocol {
-    var containerView: (UIView & ContainerViewProtocol) { get }
-    func transitionTo(status: TransitionToStatus)
+    var container: (view: UIView, delegate: ContainerViewProtocol) { get }
+//    func transitionTo(status: TransitionToStatus)
 }
 
 public enum TransitionFromStatus {

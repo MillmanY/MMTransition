@@ -62,9 +62,14 @@ extension ViewController: UITableViewDelegate {
     }
 }
 // Pass View
-extension ViewController: MMTransitionFromProtocol {
-    func transitionFrom(status: TransitionFromStatus) {
-        
+extension ViewController: MMTransitionFromProtocol {    
+    var pass: (view: UIView, delegate: PassViewProtocol) {
+        let path = IndexPath(row: selectIdx, section: 0)
+        if let cell = tableView.cellForRow(at: path) as? CustomCell {
+            cell.imgView.backgroundColor = UIColor.black
+            return (cell.imgView, cell.imgView)
+        }
+        return (UIView() , UIView() as! PassViewProtocol)
     }
     
     func passView(row: Int) {

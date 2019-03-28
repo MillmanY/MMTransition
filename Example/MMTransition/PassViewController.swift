@@ -32,14 +32,7 @@ class PassViewController: UIViewController {
 }
 
 extension PassViewController: MMTransitionToProtocol {
-    func transitionTo(status: TransitionToStatus) {
-        
-    }
-    
-    var containerView: (UIView & ContainerViewProtocol) {
-        get {
-            imageView.backgroundColor = UIColor.blue
-            return imageView
-        }
+    var container: (view: UIView, delegate: ContainerViewProtocol) {
+        return (imageView, imageView)
     }
 }

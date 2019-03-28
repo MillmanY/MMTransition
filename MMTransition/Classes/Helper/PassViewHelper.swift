@@ -28,13 +28,16 @@ public class PassViewHelper: NSObject {
         guard let toProtocol = toVC.toProtocolVC else {
             fatalError("MMTransitionToProtocol not implement")
         }
-        let passView = fromProtocol.passView
-        let passContainer = toProtocol.containerView
+        let passView = fromProtocol.pass.view
+        let passProtocol = fromProtocol.pass.delegate
+        let passContainer = toProtocol.container.view
+        let containerProtocol = toProtocol.container.delegate
+
         let passOriginalSuper = passView.superview
-        passView.passWith(status: .willLeave)
-        fromProtocol.transitionFrom(status: .willLeave)
-        passContainer.containerViewWith(status: .willCome)
-        toProtocol.transitionTo(status: .willCome)
+        passProtocol.passWith(status: .willLeave)
+//        fromProtocol.transitionFrom(status: .willLeave)
+        containerProtocol.containerViewWith(status: .willCome)
+//        toProtocol.transitionTo(status: .willCome)
         let convertFrom: CGRect = passView.superview?.convert(passView.frame, to: nil) ?? .zero
         let convertTo = passContainer.superview?.convert(passContainer.frame, to: container) ?? .zero
         let finalFrame = transitionContext.finalFrame(for: toVC)
@@ -46,13 +49,13 @@ public class PassViewHelper: NSObject {
             passView.frame = convertTo
             toVC.view.alpha = 1.0
         }, completion: {(finish) in
-            fromProtocol.transitionFrom(status: .leave)
-            passView.passWith(status: .leave)
-            toProtocol.transitionTo(status: .come)
-            passContainer.containerViewWith(status: .come)
-            passContainer.containerViewWith(status: .setContainerWith(view: passView))
+//            fromProtocol.transitionFrom(status: .leave)
+            passProtocol.passWith(status: .leave)
+//            toProtocol.transitionTo(status: .come)
+            containerProtocol.containerViewWith(status: .come)
+            containerProtocol.containerViewWith(status: .setContainerWith(view: passView))
             passOriginalSuper?.addSubview(passView)
-            passView.resetPassViewLayout()
+            passProtocol.resetPassViewLayout()
             self.transitionContext.completeTransition(!self.transitionContext.transitionWasCancelled)
         })
     }
@@ -73,13 +76,17 @@ public class PassViewHelper: NSObject {
         }
         container.addSubview(from.view)
         from.view.frame = container.frame
-        let pass = from.containerView
+        let pass = from.container.view
+        let passProtocol = from.container.delegate
+
         pass.translatesAutoresizingMaskIntoConstraints = true
-        let original = source.passView
-        source.transitionFrom(status: .willBack)
-        from.transitionTo(status: .willLeave)
-        original.passWith(status: .willBack)
-        pass.containerViewWith(status: .willLeave)
+        let original = source.pass.view
+        let originalProtocol = source.pass.delegate
+
+//        source.transitionFrom(status: .willBack)
+//        from.transitionTo(status: .willLeave)
+        originalProtocol.passWith(status: .willBack)
+        passProtocol.containerViewWith(status: .willLeave)
         let passFrame: CGRect = pass.convert(pass.frame, to: nil)
         let convertRect: CGRect = original.superview?.convert(original.frame, to: container) ?? .zero
         pass.removeFromSuperview()
@@ -90,10 +97,10 @@ public class PassViewHelper: NSObject {
             pass.frame = convertRect
         }, completion: { (finish) in
             from.view.removeFromSuperview()
-            source.transitionFrom(status: .back)
-            from.transitionTo(status: .leave)
-            original.passWith(status: .back)
-            pass.containerViewWith(status: .leave)
+//            source.transitionFrom(status: .back)
+//            from.transitionTo(status: .leave)
+            originalProtocol.passWith(status: .back)
+            passProtocol.containerViewWith(status: .leave)
             pass.removeFromSuperview()
             self.transitionContext.completeTransition(!self.transitionContext.transitionWasCancelled)
         })
