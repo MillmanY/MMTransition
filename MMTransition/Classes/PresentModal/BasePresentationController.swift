@@ -34,10 +34,11 @@ public class BasePresentationController: UIPresentationController {
             self.presentingViewController.beginAppearanceTransition(false, animated: true)
             self.presentingViewController.endAppearanceTransition()
         }
-        if let c = containerView, maskView.superview == nil, config.isShowMask {
+        if let c = containerView, maskView.superview == nil {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(BasePresentationController.maskTap(gesture:)))
             gesture.numberOfTapsRequired = 1
             maskView.addGestureRecognizer(gesture)
+            maskView.backgroundColor = config.maskColor
             c.addSubview(maskView)
         }
         let opactiy = self.config.presentView.opacity

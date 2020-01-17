@@ -10,7 +10,7 @@ import UIKit
 
 public class AlphaConfig: NSObject , NavConfig {
     public var dismissTapMask: Bool = false
-    public var isShowMask: Bool = true
+    public var maskColor = UIColor.black.withAlphaComponent(0.5)
     public var damping: CGFloat = 0.0
     public var animationOption:UIView.AnimationOptions = .curveLinear
     public var springVelocity: CGFloat = 0.0

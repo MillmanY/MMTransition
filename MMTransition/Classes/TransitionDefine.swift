@@ -10,7 +10,8 @@ import Foundation
 
 public protocol Config {
     var dismissTapMask: Bool {get set}
-    var isShowMask: Bool {get set}
+    
+    var maskColor: UIColor {get set}
     var damping: CGFloat { get set }
     var springVelocity: CGFloat { get set }
     var animationOption: UIView.AnimationOptions { get set }

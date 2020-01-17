@@ -28,7 +28,7 @@ public class MenuConfig: NSObject, PresentConfig {
     
     public var shouldApperancePresentingController: Bool = true
     public var isContainerFullScreen = true
-    public var isShowMask: Bool = true
+    public var maskColor = UIColor.black.withAlphaComponent(0.5)
     public var dismissTapMask: Bool = false
     public var presentingScale: CGFloat = 1.0
     public var damping: CGFloat = 0.0

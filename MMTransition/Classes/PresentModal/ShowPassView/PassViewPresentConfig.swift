@@ -17,7 +17,7 @@ public class PassViewPresentConfig: NSObject ,PresentConfig {
     weak public var pass: UIView?
     
     public var dismissTapMask: Bool = false
-    public var isShowMask: Bool = true
+    public var maskColor = UIColor.black.withAlphaComponent(0.5)
     public var presentingScale:CGFloat = 1.0
     public var damping: CGFloat = 0.0
     public var animationOption:UIView.AnimationOptions = .curveLinear
