@@ -17,6 +17,7 @@ public class MenuPresentationController: BasePresentationController {
     public override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
         pan = UIPanGestureRecognizer.init(target: self, action: #selector(MenuPresentationController.pan(gesture:)))
+        self.containerView?.addGestureRecognizer(pan!)
         originFrame = self.containerView?.frame ?? .zero
         self.update(type: (config as? MenuConfig)?.menuType, animated: false)
     }
