@@ -44,12 +44,16 @@ public class PassViewHelper: NSObject {
         let convertFrom: CGRect = passView.superview?.convert(passView.frame, to: nil) ?? .zero
         let convertTo = passContainer.superview?.convert(passContainer.frame, to: container) ?? .zero
         let finalFrame = transitionContext.finalFrame(for: toVC)
+        passView.removeFromSuperview()
+        passView.constraints.forEach { passView.removeConstraint($0) }
+        passView.translatesAutoresizingMaskIntoConstraints = true
+        
         
         toVC.view.frame = finalFrame
         container.addSubview(passView)
         container.layoutIfNeeded()
         passView.frame = convertFrom
-        
+
         UIView.animate(withDuration: self.config.duration, animations: {
             passView.frame = convertTo
             toVC.view.alpha = 1.0
