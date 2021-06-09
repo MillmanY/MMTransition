@@ -97,8 +97,8 @@ public class PassViewHelper: NSObject {
         passProtocol.containerViewWith(status: .willLeave)
         
         let passFrame: CGRect = pass.convert(pass.frame, to: nil)
-        let convertRect: CGRect = original.superview?.convert(original.frame, to: container) ?? .zero
-        
+        let convertRect: CGRect = original.superview?.convert(source.pass!.view.superview!.frame, to: container) ?? .zero
+    
         pass.removeFromSuperview()
         container.addSubview(pass)
         pass.frame = passFrame
@@ -108,10 +108,13 @@ public class PassViewHelper: NSObject {
             pass.frame = convertRect
         }, completion: { (finish) in
             from.view.removeFromSuperview()
+            pass.removeFromSuperview()
+            pass.constraints.forEach { pass.removeConstraint($0) }
+            source.pass?.view.addSubview(pass)
             originalProtocol.passWith(status: .back)
             passProtocol.containerViewWith(status: .leave)
-            pass.removeFromSuperview()
             self.transitionContext.completeTransition(!self.transitionContext.transitionWasCancelled)
+
         })
     }
 }

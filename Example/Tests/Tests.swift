@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import MMTransition
+//import MMTransition
 
 class Tests: XCTestCase {
     

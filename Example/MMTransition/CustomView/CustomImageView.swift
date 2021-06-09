@@ -29,15 +29,22 @@ extension CustomImageView: ContainerViewProtocol {
 extension CustomImageView: PassViewProtocol {
     func passWith(status: TransitionFromStatus) {
         switch status {
-        case .willLeave, .back:
+        case .willLeave:
             self.alpha = 1.0
-        case .leave, .willBack:
+        case .back:
+            self.alpha = 1.0
+        case .willBack:
             self.alpha = 0.0
+        case .leave:
+            self.alpha = 0.0
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.resetPassViewLayout()
+            
         }
     }
     
     func resetPassViewLayout() {
-        self.frame = CGRect.init(x: 0, y: 0, width: 100, height: 100)
+//        self.frame = CGRect.init(x: 0, y: 0, width: 100, height: 100)
         self.superview?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
         self.superview?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
     

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MMTransition'
-  s.version          = '5.0.5'
+  s.version          = '5.0.6'
   s.summary          = 'Transition for present controller'
 
 # This description is used to generate tags and improve search results.
